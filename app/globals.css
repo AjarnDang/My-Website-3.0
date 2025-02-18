@@ -24,4 +24,60 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Glitched text effect */
+  .glitch {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    overflow: hidden;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    background: transparent;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitch 0.8s infinite linear alternate-reverse;
+  }
+
+  .glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 cyan;
+    animation: glitch 0.8s infinite linear alternate;
+  }
+
+  @keyframes glitch {
+    0% { clip-path: inset(0 0 0 0); }
+    20% { clip-path: inset(10% 0 30% 0); }
+    40% { clip-path: inset(30% 0 10% 0); }
+    60% { clip-path: inset(40% 0 60% 0); }
+    80% { clip-path: inset(60% 0 40% 0); }
+    100% { clip-path: inset(100% 0 0 0); }
+  }
+
+  .glitch:hover::before { left: 4px; }
+  .glitch:hover::after { left: -4px; }
+
+  /* Custom Swiper Dots */
+  .swiper-vertical > .swiper-pagination-bullets, 
+  .swiper-pagination-vertical.swiper-pagination-bullets {
+    right: var(--swiper-pagination-right, 50px) !important;
+    left: var(--swiper-pagination-left, auto);
+    top: 50%;
+    transform: translate3d(0px, -50%, 0);
+    z-index: 999 !important;
+}
 }
