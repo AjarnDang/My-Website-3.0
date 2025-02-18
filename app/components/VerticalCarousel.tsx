@@ -24,7 +24,7 @@ const VerticalCarousel: React.FC = () => {
       >
         {/* Section 1 */}
         <SwiperSlide className="flex items-center justify-center bg-gray-900 text-white text-2xl p-5">
-          Section 1
+          <h1 className="font-extrabold lg:text-5xl"> Hi, I'm Thornthan Jomtharak</h1> 
         </SwiperSlide>
 
         {/* Section 2 - Horizontal Carousel */}

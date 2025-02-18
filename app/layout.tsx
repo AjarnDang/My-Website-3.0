@@ -26,7 +26,7 @@ export default function RootLayout({
           <aside className="absolute left-0 top-0 h-full w-14 bg-white lg:flex md:hidden hidden items-center justify-center border-r border-gray-300"></aside>
 
           {/* 🔹 Main Content Area */}
-          <main className="lg:pl-14 md:pl-0 pl-0 pt-14 h-full">{children}</main>
+          <main>{children}</main>
         </div>
       </body>
     </html>
