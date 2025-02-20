@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Topbar from "./components/Topbar";
+import Topbar from "./layout/Topbar";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "./ThemeProvider";
 import "./globals.css";
@@ -25,12 +25,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative lg:w-[97.5vw] lg:h-[95vh] md:w-full h-screen lg:rounded-xl md:rounded-none overflow-hidden lg:border border-gray-300">
+          <div className="relative lg:w-[97.5vw] lg:h-[95vh] md:w-full h-screen lg:rounded-xl md:rounded-none overflow-hidden lg:border dark:border-gray-500 border-gray-400">
             {/* 🔹 Top Bar */}
             <Topbar />
 
             {/* 🔹 Left Sidebar */}
-            <aside className="absolute left-0 top-0 h-full w-14 lg:flex md:hidden hidden items-center justify-center lg:border-r border-gray-300 -z-0"></aside>
+            <aside className="absolute left-0 top-0 h-full w-14 lg:flex md:hidden hidden items-center justify-center lg:border-r dark:border-gray-500 border-gray-400 -z-0"></aside>
 
             {/* 🔹 Main Content Area */}
             <main>{children}</main>

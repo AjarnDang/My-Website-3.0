@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { GlitchText } from "./GlitchedText";
+import { GlitchText } from "../components/GlitchedText";
 
 export function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);

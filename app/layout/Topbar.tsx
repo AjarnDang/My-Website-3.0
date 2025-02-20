@@ -6,7 +6,7 @@ import Logo from "../assets/images/logo.jpg";
 
 export default function Topbar() {
   return (
-    <header className="absolute top-0 left-0 w-full h-14 flex items-center px-0 justify-between border-b border-gray-300 bg-transparent">
+    <header className="absolute top-0 left-0 w-full h-14 flex items-center px-0 justify-between border-b dark:border-gray-500 border-gray-400 bg-transparent">
       <div className="pl-2 mr-12">
         <HamburgerMenu />
       </div>

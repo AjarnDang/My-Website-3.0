@@ -23,12 +23,40 @@ const VerticalCarousel: React.FC = () => {
         className="h-[85vh] w-full "
       >
         {/* Section 1 */}
-        <SwiperSlide className="bg-transparent p-5">
-          <div>
-            <h1 className="font-extrabold lg:text-5xl">
-              {" "}
-              Hi, Im Thornthan Jomtharak
-            </h1>
+        <SwiperSlide className="bg-transparent px-32 py-32">
+          <div className="lg:flex h-full">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1">
+              <div>
+                <h1 className="font-extrabold lg:text-5xl mb-4">
+                  Thornthan Jomtharak
+                </h1>
+                <h4 className="font-bold lg:text-xl mb-4">Experienced Web developer <br />& UX/UI Designer</h4>
+                <p className="mb-4 leading-6">
+                I craft digital experiences at the intersection of UX/UI,
+                Web3, and technology.
+                </p>
+              </div>
+              <div>
+                <p className="mb-4 leading-6">
+                Hey, Thornthan’s here! I’m a Web developer and UX/UI Designer who
+                always inspired and freshed.
+                </p>
+                <p className="mb-4 leading-6">
+                  With a background in Information Technology and more than two
+                  years of industry experience, I specialize in designing and
+                  building functional, modern, and intuitive interfaces.
+                  Currently, I work full-time as a UX/UI Designer, where I bring
+                  ideas to life through Next.js, TypeScript, and Framer.
+                </p>
+                <p className="mb-4 leading-6">
+                  Beyond design, I’m always exploring Web3 technologies,
+                  experimenting with decentralized applications (dApps),
+                  blockchain UX, and digital ownership. I believe in the future
+                  of seamless, user-friendly decentralized ecosystems, and I’m
+                  on a mission to make them more accessible.
+                </p>
+              </div>
+            </div>
           </div>
         </SwiperSlide>
 
