@@ -3,21 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --swiper-pagination-bullet-inactive-color: #000; /* Black bullets */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark Mode */
+.dark {
+  --swiper-pagination-bullet-inactive-color: #fff !important; /* White bullets */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Swiper Dots */
+.swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets {
+  right: var(--swiper-pagination-right, auto);
+  left: var(--swiper-pagination-left, 8px) !important;
+  top: 50%;
+  transform: translate3d(0px, -50%, 0);
+  z-index: 999 !important;
+}
+
+.swiper-pagination-bullet-active,
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
 }
 
 @layer utilities {
@@ -60,24 +66,36 @@ body {
   }
 
   @keyframes glitch {
-    0% { clip-path: inset(0 0 0 0); }
-    20% { clip-path: inset(10% 0 30% 0); }
-    40% { clip-path: inset(30% 0 10% 0); }
-    60% { clip-path: inset(40% 0 60% 0); }
-    80% { clip-path: inset(60% 0 40% 0); }
-    100% { clip-path: inset(100% 0 0 0); }
+    0% {
+      clip-path: inset(0 0 0 0);
+    }
+
+    20% {
+      clip-path: inset(10% 0 30% 0);
+    }
+
+    40% {
+      clip-path: inset(30% 0 10% 0);
+    }
+
+    60% {
+      clip-path: inset(40% 0 60% 0);
+    }
+
+    80% {
+      clip-path: inset(60% 0 40% 0);
+    }
+
+    100% {
+      clip-path: inset(100% 0 0 0);
+    }
   }
 
-  .glitch:hover::before { left: 4px; }
-  .glitch:hover::after { left: -4px; }
+  .glitch:hover::before {
+    left: 4px;
+  }
 
-  /* Custom Swiper Dots */
-  .swiper-vertical > .swiper-pagination-bullets, 
-  .swiper-pagination-vertical.swiper-pagination-bullets {
-    right: var(--swiper-pagination-right, 50px) !important;
-    left: var(--swiper-pagination-left, auto);
-    top: 50%;
-    transform: translate3d(0px, -50%, 0);
-    z-index: 999 !important;
-}
+  .glitch:hover::after {
+    left: -4px;
+  }
 }

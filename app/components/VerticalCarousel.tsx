@@ -11,7 +11,7 @@ const VerticalCarousel: React.FC = () => {
   const horizontalSwiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <div className="h-screen w-screen overflow-hidden">
+    <div className="overflow-hidden">
       {/* Vertical Swiper */}
       <Swiper
         direction="vertical"
@@ -20,15 +20,20 @@ const VerticalCarousel: React.FC = () => {
         mousewheel={true}
         pagination={{ clickable: true }}
         modules={[Mousewheel, Pagination]}
-        className="h-screen w-full"
+        className="h-[85vh] w-full "
       >
         {/* Section 1 */}
-        <SwiperSlide className="flex items-center justify-center bg-gray-900 text-white text-2xl p-5">
-          <h1 className="font-extrabold lg:text-5xl"> Hi, I'm Thornthan Jomtharak</h1> 
+        <SwiperSlide className="bg-transparent p-5">
+          <div>
+            <h1 className="font-extrabold lg:text-5xl">
+              {" "}
+              Hi, Im Thornthan Jomtharak
+            </h1>
+          </div>
         </SwiperSlide>
 
         {/* Section 2 - Horizontal Carousel */}
-        <SwiperSlide className="flex flex-col items-center justify-center bg-gray-800 text-white text-2xl p-5">
+        <SwiperSlide className="flex flex-col items-center justify-center text-2xl p-5">
           <h2 className="mb-4">Horizontal Carousel</h2>
           <div className="w-4/5">
             <Swiper
@@ -39,13 +44,13 @@ const VerticalCarousel: React.FC = () => {
               pagination={{ clickable: true }}
               className="h-60"
             >
-              <SwiperSlide className="flex items-center justify-center bg-blue-500 text-white text-lg">
+              <SwiperSlide className="flex items-center justify-center text-lg">
                 Slide A
               </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center bg-green-500 text-white text-lg">
+              <SwiperSlide className="flex items-center justify-center text-lg">
                 Slide B
               </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center bg-red-500 text-white text-lg">
+              <SwiperSlide className="flex items-center justify-center text-lg">
                 Slide C
               </SwiperSlide>
             </Swiper>
@@ -53,7 +58,7 @@ const VerticalCarousel: React.FC = () => {
         </SwiperSlide>
 
         {/* Section 3 */}
-        <SwiperSlide className="flex items-center justify-center bg-gray-700 text-white text-2xl p-5">
+        <SwiperSlide className="flex items-center justify-center text-2xl p-5">
           Section 3
         </SwiperSlide>
       </Swiper>

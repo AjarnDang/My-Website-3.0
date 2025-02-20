@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Topbar from "./components/Topbar";
-import { Inter } from 'next/font/google'
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "./ThemeProvider";
 import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Thornthan J.",
@@ -14,20 +15,27 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth md:scroll-auto">
+    <html lang="en">
       <body
-        className={`${inter.className} antialiased bg-gray-50 text-black flex justify-center items-center min-h-screen`}
+        className={`${inter.className} antialias flex justify-center items-center min-h-screen lg:scroll-smooth md:scroll-auto scroll-auto text-[#222222] bg-[#f5f5f5] dark:text-[#f5f5f5] dark:bg-[#1b1b23]`}
       >
-        <div className="relative lg:w-[97.5vw] lg:h-[95vh] md:w-full h-full bg-white lg:rounded-xl md:rounded-none overflow-hidden border border-gray-300">
-          {/* 🔹 Top Bar */}
-          <Topbar />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative lg:w-[97.5vw] lg:h-[95vh] md:w-full h-screen lg:rounded-xl md:rounded-none overflow-hidden lg:border border-gray-300">
+            {/* 🔹 Top Bar */}
+            <Topbar />
 
-          {/* 🔹 Left Sidebar */}
-          <aside className="absolute left-0 top-0 h-full w-14 bg-white lg:flex md:hidden hidden items-center justify-center border-r border-gray-300"></aside>
+            {/* 🔹 Left Sidebar */}
+            <aside className="absolute left-0 top-0 h-full w-14 lg:flex md:hidden hidden items-center justify-center lg:border-r border-gray-300 -z-0"></aside>
 
-          {/* 🔹 Main Content Area */}
-          <main>{children}</main>
-        </div>
+            {/* 🔹 Main Content Area */}
+            <main>{children}</main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

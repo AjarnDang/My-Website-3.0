@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
-
+import SwitchTheme from "./SwitchTheme";
 import { HamburgerMenu } from "./HamburgerMenu";
 import Logo from "../assets/images/logo.jpg";
 
 export default function Topbar() {
   return (
     <header className="absolute top-0 left-0 w-full h-14 flex items-center px-0 justify-between border-b border-gray-300 bg-transparent">
-      <div className="pl-2 mr-8">
+      <div className="pl-2 mr-12">
         <HamburgerMenu />
       </div>
       <div>
@@ -20,12 +20,15 @@ export default function Topbar() {
           priority
         />
       </div>
-      <a
-        href="#"
-        className="text-md font-bold uppercase w-fit flex h-full items-center px-5 bg-transparent"
-      >
-        CONTACT
-      </a>
+      <div className="flex items-center h-full gap-2">
+        <SwitchTheme />
+        <a
+          href="#"
+          className="text-md font-bold uppercase w-fit flex h-full items-center px-5 dark:bg-blue-950 bg-blue-200 rounded-bl-xl"
+        >
+          CONTACT
+        </a>
+      </div>
     </header>
   );
 }

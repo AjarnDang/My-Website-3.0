@@ -21,7 +21,7 @@ export function HamburgerMenu() {
       {/* 🔹 Sidebar Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-white/80 z-40 transition-all"
+          className="fixed inset-0 dark:bg-gray-900/80 bg-white/80  z-40 transition-all"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -31,11 +31,11 @@ export function HamburgerMenu() {
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? "0%" : "-100%" }}
         transition={{ type: "spring", stiffness: 80, damping: 15 }}
-        className="fixed top-0 left-0 h-full w-64 bg-black text-white p-6 z-50 shadow-lg"
+        className="fixed top-0 left-0 h-full w-64 bg-slate-900 dark:bg-slate-100 text-white dark:text-[#222222] p-6 z-50 shadow-lg"
       >
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 text-white"
+          className="absolute top-4 right-4 dark:text-[#222222] text-white"
         >
           <X size={32} />
         </button>
