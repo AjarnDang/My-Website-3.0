@@ -1,21 +1,23 @@
 "use client";
 
-import About from "../components/About";
-import Experiences from "../components/Experiences";
-import Works from "../components/Works";
+import works from "../utils/works";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <section className="space-y-24">
-      <div id="about">
-        <About />
-      </div>
-      <div id="experience">
-        <Experiences />
-      </div>
-      <div id="works">
-        <Works />
-      </div>
+    <section>
+      {works.map((work) => (
+        <div key={work.id} className="mb-12">
+          <Image
+            src={work.img}
+            alt={work.name}
+            width={0}
+            height={0}
+            className="w-full h-[500px] object-cover rounded-3xl transition-transform group-hover:scale-105"
+            priority
+          />
+        </div>
+      ))}
     </section>
   );
 }

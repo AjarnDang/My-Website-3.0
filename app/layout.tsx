@@ -25,7 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="grid lg:grid-cols-[300px_1fr] h-screen justify-between gap-12 lg:px-12 px-4">
+          <div className="grid lg:grid-cols-[300px_1fr] h-screen justify-between gap-12">
             <StickySideNav />
 
             <main className="overflow-auto h-screen px-8 py-12">
