@@ -14,10 +14,10 @@ const SwitchTheme = () => {
   }
 
   const handleSwitchTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
+    if (theme === "dark") {
       setTheme("light");
+    } else {
+      setTheme("dark");
     }
   };
 

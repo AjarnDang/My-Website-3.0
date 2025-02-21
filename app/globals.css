@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 :root {
   --swiper-pagination-bullet-inactive-color: #000; /* Black bullets */
 }

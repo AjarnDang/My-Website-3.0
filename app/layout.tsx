@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Topbar from "./layout/Topbar";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "./ThemeProvider";
 import "./globals.css";
+import StickySideNav from "./layout/StickySideNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialias flex justify-center items-center min-h-screen lg:scroll-smooth md:scroll-auto scroll-auto text-[#222222] bg-[#f5f5f5] dark:text-[#f5f5f5] dark:bg-[#1b1b23]`}
+        className={`${inter.className} antialiased h-screen w-auto overflow-hidden text-[#222222] bg-[#f5f5f5] dark:text-[#f5f5f5] dark:bg-[#1b1b23]`}
       >
         <ThemeProvider
           attribute="class"
@@ -25,15 +25,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative lg:w-[97.5vw] lg:h-[95vh] md:w-full h-screen lg:rounded-xl md:rounded-none overflow-hidden lg:border dark:border-gray-500 border-gray-400">
-            {/* 🔹 Top Bar */}
-            <Topbar />
+          <div className="grid lg:grid-cols-[300px_1fr] h-screen justify-between gap-12 lg:px-12 px-4">
+            <StickySideNav />
 
-            {/* 🔹 Left Sidebar */}
-            <aside className="absolute left-0 top-0 h-full w-14 lg:flex md:hidden hidden items-center justify-center lg:border-r dark:border-gray-500 border-gray-400 -z-0"></aside>
-
-            {/* 🔹 Main Content Area */}
-            <main>{children}</main>
+            <main className="overflow-auto h-screen px-8 py-12">
+              {children}
+            </main>
           </div>
         </ThemeProvider>
       </body>
