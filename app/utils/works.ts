@@ -26,7 +26,7 @@ const works: WorkItem[] = [
     name: "0xJeff",
     slug: "0xjeff",
     img: oxjeff,
-    date: "Feb, 2025",
+    date: "Feb 2025",
     desc: "Personal Web Application for @Defi0xJeff at Twitter (X) inspired by Web3, Blockchain, Crypto, NFTs and other modern technologies which include the Etherium, KPVerse, Optimism, etc.",
     category: "UX/UI Design",
     tech: [
@@ -45,7 +45,7 @@ const works: WorkItem[] = [
     name: "DABUZZZZ",
     slug: "dabuzzzz",
     img: dabuzzzz,
-    date: "Oct, 2024",
+    date: "Oct 2024",
     desc: "Dabuzzzz Style Studio, where every cut, color, and style is crafted with passion and precision! We are a full-service hair studio dedicated to the art of modern barbering and hairstyling, offering a personalized experience that combines high-quality techniques with a fresh, trendy approach.",
     category: "UX/UI Design",
     tech: [
@@ -65,7 +65,7 @@ const works: WorkItem[] = [
     name: "The Watcher",
     slug: "the-watcher",
     img: thewatcher,
-    date: "Oct, 2024",
+    date: "Oct 2024",
     desc: "The Watcher is mini project of web design. The project is about Smart Watch with a modern theme, flawless looks and elegant design. The key point is to create a Landing page for purchasing Smart Watch with some detail of the product.",
     category: "UX/UI Design",
     tech: [
@@ -84,7 +84,7 @@ const works: WorkItem[] = [
     name: "RunAds",
     slug: "run-ads",
     img: runads,
-    date: "Jul, 2024",
+    date: "Jul 2024",
     desc: "RunAds is an innovative platform that blends interactivity, community, and creativity. At its core, it allows users to create engaging quizzes and questionnaires, making it a powerful tool for gathering opinions, conducting research, or simply having fun.",
     category: "UX/UI Design",
     tech: [
@@ -106,7 +106,7 @@ const works: WorkItem[] = [
     name: "Trademan",
     slug: "trademan",
     img: trademan,
-    date: "Apr, 2024",
+    date: "Apr 2024",
     desc: "Trademan is a web application that trades Thai stocks through a browser developed by Effin. And a team specialized in programs and application trading systems used by Thai people for a long time, such as efin StockPickUp/ Efin Trade Plus/efin Mobile.",
     category: "UX/UI Design",
     tech: [
@@ -146,7 +146,7 @@ const works: WorkItem[] = [
     name: "Toyota IDM",
     slug: "toyota-idm",
     img: toyotaidm,
-    date: "Nov, 2023",
+    date: "Nov 2023",
     desc: "A web application for setting up master data of back office systems of Toyota.",
     category: "UX/UI Design",
     tech: [
@@ -168,7 +168,7 @@ const works: WorkItem[] = [
     name: "OFAS Chula",
     slug: "ofas-chula",
     img: ofas,
-    date: "Dec, 2023",
+    date: "Dec 2023",
     desc: "The Sport Center of Chulalongkorn University. E-Reciept (Electronic Recipe) web application for internal uses and normal part for formal user including Registeration, Sport application, billing, etc.",
     category: "UX/UI Design",
     tech: [

@@ -23,7 +23,7 @@ export default function Works() {
           <div>
             <h2 className="lg:text-2xl text-xl font-bold">{work.name}</h2>
             <h6 className="text-slate-500">{work.date}</h6>
-            <p className="my-4 leading-8">{work.desc}</p>
+            <p className="my-4 leading-6">{work.desc}</p>
           </div>
         </div>
       ))}
