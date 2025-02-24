@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "./ThemeProvider";
-import "./globals.css";
 import StickySideNav from "./layout/StickySideNav";
+import Loader from "./layout/Loading";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,10 +26,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="grid lg:grid-cols-[300px_1fr] h-screen justify-between gap-12">
+          <div className="grid lg:grid-cols-[300px_1fr] h-screen justify-between lg:gap-32 gap-12">
+            <div className="pl-12">
             <StickySideNav />
+            </div>
 
             <main className="overflow-auto h-screen px-8 py-12">
+              <Loader />
               {children}
             </main>
           </div>

@@ -1,9 +1,10 @@
-import VerticalCarousel from "./components/VerticalCarousel";
+import React from "react";
+import Works from "./components/Home";
 
-export default function Home() {
+export default function page() {
   return (
-    <main className="lg:pl-14 md:pl-0 pl-0 pt-14 h-full">
-      <VerticalCarousel />
-    </main>
+    <div>
+      <Works />
+    </div>
   );
 }

@@ -2,6 +2,8 @@
 
 import React from "react";
 import SwitchTheme from "./SwitchTheme";
+import Link from "next/link";
+import NavMenu from "../utils/navMenu";
 
 export default function StickySideNav() {
   const currYear = new Date().getFullYear();
@@ -24,16 +26,18 @@ export default function StickySideNav() {
           </p>
           <nav className="mt-12">
             <ul className="flex flex-col space-y-4 list-none">
-              <li>Works</li>
-              <li>About</li>
-              <li>Contact</li>
+              {NavMenu.map((item) => (
+                <li key={item.id}>
+                  <Link href={item.link}>{item.name}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
 
         <div className="flex justify-between items-center">
           <SwitchTheme />
-          <small>© {currYear} - Thornthan J.</small>
+          <small>© 2023 - {currYear} Thornthan J.</small>
         </div>
       </aside>
     </>
