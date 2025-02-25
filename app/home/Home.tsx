@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Works() {
   return (
-    <section className="pr-12">
+    <section className="lg:pr-12">
       {/* <h1 className="lg:text-3xl text-xl font-bold uppercase mb-4">Latest Works</h1> */}
 
       {works.slice(0, 5).map((work) => (
@@ -17,7 +17,7 @@ export default function Works() {
               alt={work.name}
               width={0}
               height={0}
-              className="w-full h-[500px] object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-75 cursor-pointer"
+              className="w-full max-h-[400px] min-h-auto object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-75 cursor-pointer"
               priority
             />
           </Link>

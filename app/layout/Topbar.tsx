@@ -1,33 +1,30 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import SwitchTheme from "./SwitchTheme";
 import { HamburgerMenu } from "./HamburgerMenu";
-import Logo from "../assets/images/logo.jpg";
+import Logo from "../images/logo/logo.jpg";
 
 export default function Topbar() {
   return (
-    <header className="absolute top-0 left-0 w-full h-14 flex items-center px-0 justify-between border-b dark:border-gray-500 border-gray-400 bg-transparent">
-      <div className="pl-2 mr-12">
+    <header className="absolute top-0 left-0 w-full h-20 lg:hidden md:flex flex items-center justify-between border-b dark:border-gray-500 border-gray-400 bg-white dark:bg-neutral-900 px-4">
+      <div>
         <HamburgerMenu />
       </div>
       <div>
-        <Image
-          className="h-12 w-12 object-cover rounded-full"
-          src={Logo}
-          alt="Logo"
-          width={0}
-          height={0}
-          priority
-        />
+        <Link href="/home">
+          <Image
+            className="h-12 w-12 object-cover rounded-full"
+            src={Logo}
+            alt="Logo"
+            width={0}
+            height={0}
+            priority
+          />
+        </Link>
       </div>
       <div className="flex items-center h-full gap-2">
         <SwitchTheme />
-        <a
-          href="#"
-          className="text-md font-bold uppercase w-fit flex h-full items-center px-5 dark:bg-blue-950 bg-blue-200 rounded-bl-xl"
-        >
-          CONTACT
-        </a>
       </div>
     </header>
   );

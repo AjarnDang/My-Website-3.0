@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import avatar from "@/app/images/others/avatar.jpg";
-import Experiences from "./Experiences";
+import Experiences from "../components/Experiences";
 
 export default function About() {
   return (
-    <section className="pr-12 lg:space-y-12 lg:w-3/4 w-full">
+    <section className="lg:pr-12 lg:space-y-12 lg:w-3/4 w-full">
       <Image
         src={avatar}
         width={0}

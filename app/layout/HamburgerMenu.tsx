@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { GlitchText } from "../components/GlitchedText";
+import NavMenu from "../utils/navMenu";
+import Link from "next/link";
 
 export function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,30 +41,19 @@ export function HamburgerMenu() {
           <X size={32} />
         </button>
         <nav className="mt-10 space-y-4 text-2xl font-bold">
-          <a
-            href="#"
-            className="block bg-lime-400 px-2 py-1 text-black rounded"
-          >
-            <GlitchText text="HOME" />
-          </a>
-          <a
-            href="#"
-            className="block hover:bg-white hover:text-black hover:px-2 hover:py-1 rounded transition-all"
-          >
-            <GlitchText text="WORKS" />
-          </a>
-          <a
-            href="#"
-            className="block hover:bg-white hover:text-black hover:px-2 hover:py-1 rounded transition-all"
-          >
-            <GlitchText text="ABOUT" />
-          </a>
-          <a
-            href="#"
-            className="block hover:bg-white hover:text-black hover:px-2 hover:py-1 rounded transition-all"
-          >
-            <GlitchText text="CONTACT" />
-          </a>
+          <ul className="flex flex-col space-y-6 list-none">
+            {NavMenu.map((item) => (
+              <li key={item.id}>
+                <Link
+                  href={item.link}
+                  onClick={() => setIsOpen(false)}
+                  className="uppercase font-semibold"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
       </motion.div>
     </>

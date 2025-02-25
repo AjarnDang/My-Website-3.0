@@ -14,7 +14,7 @@ export default function WorkDetail({ params }: WorkDetailProps) {
   if (!work) return notFound(); // Handle 404 if work not found
 
   return (
-    <section className="pr-12">
+    <section className="lg:pr-12">
       <div className="mb-8">
       <Link href="/works">
         <ArrowLeft />
