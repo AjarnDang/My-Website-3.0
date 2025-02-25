@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import works from "../utils/works";
+import works from "../utils/uxuiWorks";
 import Image from "next/image";
 import { Minus, ArrowRight } from "lucide-react";
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -23,13 +24,15 @@ export default function Loader() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
-          <motion.div
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            Loading...
-          </motion.div>
+          {/* Shining Loading Text */}
+          <div className="relative text-2xl font-bold leading-none uppercase overflow-hidden">
+            <span className="relative z-10">
+              // <br/>
+              Loading <br/>
+              Content
+              </span>
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent w-full h-full animate-shine"></span>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

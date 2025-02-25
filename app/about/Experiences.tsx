@@ -5,7 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Experiences() {
   return (
-    <section className="space-y-6">
+    <>
+    <section className="space-y-6" id="uxui">
       {experiences.map((exp) => (
         <div
           key={exp.id}
@@ -41,5 +42,10 @@ export default function Experiences() {
         </div>
       ))}
     </section>
+
+    <section id="dev">
+      
+    </section>
+    </>
   );
 }

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   font-size: 14px;
   font-weight: 400;
@@ -11,25 +15,19 @@
   --swiper-pagination-bullet-inactive-color: #000; /* Black bullets */
 }
 
-/* Dark Mode */
-.dark {
-  --swiper-pagination-bullet-inactive-color: #fff !important; /* White bullets */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
-/* Custom Swiper Dots */
-.swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets {
-  right: var(--swiper-pagination-right, auto);
-  left: var(--swiper-pagination-left, 8px) !important;
-  top: 50%;
-  transform: translate3d(0px, -50%, 0);
-  z-index: 999 !important;
+.animate-shine {
+  animation: shine 1.5s infinite linear;
 }
 
-.swiper-pagination-bullet-active,
-.swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-}
 
 @layer utilities {
   .text-balance {

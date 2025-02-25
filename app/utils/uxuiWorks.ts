@@ -18,6 +18,7 @@ interface WorkItem {
   category: string;
   tech: string[];
   link: string;
+  figma: string;
 }
 
 const works: WorkItem[] = [
@@ -39,6 +40,7 @@ const works: WorkItem[] = [
       "Responsive Web Design",
     ],
     link: "https://0xjeff.framer.website/",
+    figma: "",
   },
   {
     id: 2,
@@ -59,6 +61,7 @@ const works: WorkItem[] = [
       "Typography",
     ],
     link: "https://dabuzzzz.vercel.app/",
+    figma: "https://www.figma.com/design/GKKKB5ceWoObrlR7rXM3Ex/DABUZZZZ-HAIR-STUDIO?node-id=1-35&t=0FQd1rta5Nn3Z3eT-1",
   },
   {
     id: 3,
@@ -77,7 +80,8 @@ const works: WorkItem[] = [
       "User Persona",
       "Adobe Photoshop",
     ],
-    link: "",
+    link: "#",
+    figma: "https://www.figma.com/design/XmVHtNwnSmAB2ciCVRZ5zB/THE-WATCHER?node-id=65-2280&t=A0MnszmOaT978yLt-1",
   },
   {
     id: 4,
@@ -99,7 +103,8 @@ const works: WorkItem[] = [
       "Adobe Photoshop",
       "Responsive Web Design",
     ],
-    link: "",
+    link: "#",
+    figma: "",
   },
   {
     id: 5,
@@ -120,6 +125,7 @@ const works: WorkItem[] = [
       "Adobe Photoshop",
     ],
     link: "https://trademan.in.th/",
+    figma: "https://www.figma.com/design/VlS19VWPMGFigFN6aNyLr6/Trademan?node-id=292-166&t=7WTufNiVRC0ZEKaV-1",
   },
   {
     id: 6,
@@ -140,6 +146,7 @@ const works: WorkItem[] = [
       "Adobe Photoshop",
     ],
     link: "https://www.metrosystems.co.th/business-units/dsg/",
+    figma: "https://www.figma.com/design/bH2nDF2Su4xQn4VZGUqTGo/Metrosystems-DSG?node-id=0-1&t=AEu1mRR2N4hODLyK-1",
   },
   {
     id: 7,
@@ -162,6 +169,7 @@ const works: WorkItem[] = [
       "Responsive Web Design",
     ],
     link: "https://www.metrosystems.co.th/business-units/dsg/",
+    figma: "",
   },
   {
     id: 8,
@@ -184,6 +192,7 @@ const works: WorkItem[] = [
       "Responsive Web Design",
     ],
     link: "https://ofas.chula.ac.th/sport",
+    figma: "",
   },
 ];
 
