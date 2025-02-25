@@ -24,7 +24,8 @@ export default function Works() {
       <Minus className="lg:hidden md:hidden block opacity-50 mb-4" />
       {works.slice(0, 5).map((work) => (
         <div key={work.id} className="mb-12">
-          <Link href={`/works/${work.slug}`}>
+          {/* {`/works/${work.slug}`} */}
+          <Link href="/works">
             <Image
               src={work.img}
               alt={work.name}

@@ -3,11 +3,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import NavMenu from "../utils/navMenu";
 import Link from "next/link";
 
 export function HamburgerMenu() {
+
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -42,17 +45,22 @@ export function HamburgerMenu() {
         </button>
         <nav className="mt-10 space-y-4 text-2xl font-bold">
           <ul className="flex flex-col space-y-6 list-none">
-            {NavMenu.map((item) => (
-              <li key={item.id}>
-                <Link
-                  href={item.link}
-                  onClick={() => setIsOpen(false)}
-                  className="uppercase font-semibold"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
+            {NavMenu.map((item) => {
+                const isActive = pathname === item.link; // Check if current route matches link
+
+                return (
+                  <li key={item.id}>
+                    <Link
+                      href={item.link}
+                      className={`${
+                        isActive ? "font-bold" : "opacity-75"
+                      } transition-all duration-300 hover:opacity-100`}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
         </nav>
       </motion.div>

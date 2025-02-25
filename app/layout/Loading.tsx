@@ -25,13 +25,11 @@ export default function Loader() {
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
           {/* Shining Loading Text */}
-          <div className="relative text-2xl font-bold leading-none uppercase overflow-hidden">
-            <span className="relative z-10">
-              // <br/>
-              Loading <br/>
-              Content
-              </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent w-full h-full animate-shine"></span>
+          <div className="relative font-bold leading-none rounded-full uppercase px-4 py-3 overflow-hidden">
+            <small className="relative z-10">
+              // Loading Content
+              </small>
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent dark:via-white/50 via-neutral-200/70 to-transparent w-full h-full animate-shine"></span>
           </div>
         </motion.div>
       )}

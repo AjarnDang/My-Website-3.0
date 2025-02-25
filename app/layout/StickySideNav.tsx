@@ -6,9 +6,11 @@ import SwitchTheme from "./SwitchTheme";
 import Link from "next/link";
 import NavMenu from "../utils/navMenu";
 import Logo from "../images/logo/logo.jpg";
+import { usePathname } from "next/navigation";
 
 export default function StickySideNav() {
   const currYear = new Date().getFullYear();
+  const pathname = usePathname();
 
   return (
     <>
@@ -38,11 +40,22 @@ export default function StickySideNav() {
           </p>
           <nav className="mt-12">
             <ul className="flex flex-col space-y-4 list-none">
-              {NavMenu.map((item) => (
-                <li key={item.id}>
-                  <Link href={item.link}>{item.name}</Link>
-                </li>
-              ))}
+              {NavMenu.map((item) => {
+                const isActive = pathname === item.link; // Check if current route matches link
+
+                return (
+                  <li key={item.id}>
+                    <Link
+                      href={item.link}
+                      className={`${
+                        isActive ? "font-bold" : "opacity-75"
+                      } transition-all duration-300 hover:opacity-100`}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>
