@@ -6,7 +6,7 @@ import { Mousewheel, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import About from "./About";
-import Experiences from "./Experiences";
+import Experiences from "../about/Experiences";
 
 const VerticalCarousel: React.FC = () => {
   return (

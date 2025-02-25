@@ -1,10 +1,12 @@
 "use client";
 
 import * as React from "react";
+import dynamic from "next/dynamic";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { type ThemeProviderProps } from "next-themes";
 import { motion } from "framer-motion";
-import AnimatedBackground from "./layout/AnimatedBackground";
+
+const FloatingDots = dynamic(() => import("./layout/AnimatedBackground"), { ssr: false });
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
@@ -15,7 +17,10 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
       >
-        <AnimatedBackground />
+        {Array.from({ length: 10 }).map((_, index) => (
+          <FloatingDots key={index} index={index} />
+        ))}
+
       </motion.div>
       {children}
     </NextThemesProvider>

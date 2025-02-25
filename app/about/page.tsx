@@ -3,7 +3,7 @@ import About from "./About";
 
 export default function page() {
   return (
-    <div>
+    <div className="flex justify-center">
       <About />
     </div>
   );

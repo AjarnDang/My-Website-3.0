@@ -3,7 +3,7 @@ import Work from "./Work";
 
 export default function page() {
   return (
-    <div>
+    <div className="flex justify-center">
       <Work />
     </div>
   );
