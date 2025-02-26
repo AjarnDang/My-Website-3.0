@@ -1,0 +1,101 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { Minus } from "lucide-react";
+
+const sections = [
+  { id: "uxui-works", label: "UX/UI" },
+  { id: "dev-works", label: "DEV" },
+];
+
+export default function WorkNav() {
+  const [activeSection, setActiveSection] = useState("uxui-works");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200; // Adjust offset for better detection
+
+      sections.forEach(({ id }) => {
+        const section = document.getElementById(id);
+        if (section) {
+          const { offsetTop, offsetHeight } = section;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <>
+      {/* Desktop (md and up) - Right Center */}
+      <div className="hidden md:hidden lg:block fixed transform top-1/2 right-6 -translate-y-1/2 space-y-4 z-50">
+        {sections.map(({ id, label }) => (
+          <button
+            key={id}
+            onClick={() => scrollToSection(id)}
+            className={`
+          ${
+            activeSection === id
+              ? "dark:bg-green-700 bg-green-500 dark:shadow-slate-700 shadow-slate-400/50 shadow-lg"
+              : "text-gray-300"
+          }
+          btn w-full items-center gap-2 text-right px-3 py-2 rounded-full transition-all duration-300 flex justify-end
+        `}
+          >
+            {activeSection === id && <Minus color="#d1d5db" />}
+            <span
+              className={`${
+                activeSection === id
+                  ? "text-green-100 font-bold"
+                  : "text-gray-300"
+              }`}
+            >
+              {label}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {/* Mobile (sm and below) - Bottom Center */}
+      <div className="lg:hidden md:flex flex fixed bottom-16 rounded-full dark:bg-neutral-800 bg-neutral-200 left-1/2 -translate-x-1/2 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl z-50">
+        {sections.map(({ id, label }) => (
+          <button
+            key={id}
+            onClick={() => scrollToSection(id)}
+            className={`
+          ${
+            activeSection === id
+              ? "dark:bg-green-800 bg-green-600"
+              : "text-gray-500"
+          }
+          btn items-center gap-0 text-center px-5 py-3 rounded-full transition-all duration-300 flex justify-center
+        `}
+          >
+            <span
+              className={`${
+                activeSection === id
+                  ? "dark:text-green-300 text-green-200 font-bold"
+                  : "dark:text-gray-300 text-neutral-800"
+              }
+              text-lg`}
+            >
+              {label}
+            </span>
+          </button>
+        ))}
+      </div>
+    </>
+  );
+}

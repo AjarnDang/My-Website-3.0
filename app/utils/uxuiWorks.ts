@@ -1,11 +1,11 @@
-import oxjeff from "@/app/images/thumbnails/0xjeff.png";
-import dabuzzzz from "@/app/images/thumbnails/dabuzzzz.png";
-import thewatcher from "@/app/images/thumbnails/the-watcher.png";
-import runads from "@/app/images/thumbnails/runads.png";
-import trademan from "@/app/images/thumbnails/trademan.png";
-import msgdsc from "@/app/images/thumbnails/msc-dsg.png";
-import toyotaidm from "@/app/images/thumbnails/toyota-idm.png";
-import ofas from "@/app/images/thumbnails/ofas.png";
+import oxjeff from "@/app/images/thumbnails/uxui/0xjeff.png";
+import dabuzzzz from "@/app/images/thumbnails/uxui/dabuzzzz.png";
+import thewatcher from "@/app/images/thumbnails/uxui/the-watcher.png";
+import runads from "@/app/images/thumbnails/uxui/runads.png";
+import trademan from "@/app/images/thumbnails/uxui/trademan.png";
+import msgdsc from "@/app/images/thumbnails/uxui/msc-dsg.png";
+import toyotaidm from "@/app/images/thumbnails/uxui/toyota-idm.png";
+import ofas from "@/app/images/thumbnails/uxui/ofas.png";
 import { StaticImageData } from "next/image";
 
 interface WorkItem {
@@ -191,7 +191,7 @@ const works: WorkItem[] = [
       "Bootstrap 5",
       "Responsive Web Design",
     ],
-    link: "https://ofas.chula.ac.th/sport",
+    link: "https://ofas.chula.ac.th/",
     figma: "",
   },
 ];

@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import works from "../utils/uxuiWorks";
+import devWorks from "../utils/devWork";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
-export default function Works() {
+export default function DevWork() {
   return (
-    <section className="lg:pr-12 lg:space-y-20 lg:w-3/4 w-full">
-      {/* <h1 className="lg:text-3xl text-xl font-bold uppercase mb-4">Latest Works</h1> */}
-      {works.map((work) => (
+    <section className="lg:pr-12 lg:space-y-16 lg:w-3/4 lg:pt-24 pt-16 w-full">
+      <h1 className="lg:text-3xl text-xl font-bold uppercase">Development (Coding)</h1>
+      {devWorks.map((work) => (
         <div
           key={work.id}
           className="lg:mb-12 lg:space-y-0 md:space-y-6 space-y-6 mb-8 lg:flex md:block block gap-8"
@@ -21,7 +21,7 @@ export default function Works() {
               alt={work.name}
               width={0}
               height={0}
-              className="max-w-[400px] w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-75 cursor-pointer"
+              className="max-w-80 w-80 h-40 min-w-auto max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-75 cursor-pointer"
               priority
             />
           </Link>
@@ -40,10 +40,10 @@ export default function Works() {
                 <h6 className="text-slate-500">{work.date}</h6>
               </div>
               <div>
-                {work.figma != "" && (
-                  <Link href={work.figma} target="_blank">
+                {work.github != "" && (
+                  <Link href={work.github} target="_blank">
                     <button className="before:ease rounded-full relative h-10 w-28 overflow-hidden bg-neutral-800 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
-                      <span className="relative z-10">Figma </span>
+                      <span className="relative z-10">Github </span>
                       <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none translate-y-px" />
                     </button>
                   </Link>
