@@ -21,7 +21,7 @@ export default function Works() {
               alt={work.name}
               width={0}
               height={0}
-              className="max-w-[400px] w-80 h-40 min-w-full min-h-auto object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-75 cursor-pointer"
+              className="max-w-[400px] w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-75 cursor-pointer"
               priority
             />
           </Link>

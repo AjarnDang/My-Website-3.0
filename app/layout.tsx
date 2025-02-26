@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased h-screen w-auto overflow-hidden text-[#222222] bg-[#f5f5f5] dark:text-[#f5f5f5] dark:bg-[#0d1117]`}
+        className={`${inter.className} antialiased h-screen w-auto text-[#222222] bg-[#f5f5f5] dark:text-[#f5f5f5] dark:bg-[#0d1117]`}
       >
         <ThemeProvider
           attribute="class"
@@ -31,16 +31,20 @@ export default function RootLayout({
           <Topbar />
           <div className="grid lg:grid-cols-[300px_1fr] md:grid-cols-[250px_1fr] h-screen justify-between lg:gap-32 gap-12">
             <div className="pl-12">
-            <StickySideNav />
+              <StickySideNav />
             </div>
 
-            <main className="overflow-auto h-screen px-8 py-14">
-              <Loader />
-              {children}
+            {/* ✅ Added a wrapper for main content to ensure proper height */}
+            <div className="flex flex-col h-full">
+              <main className="overflow-auto relative min-h-screen flex-grow px-8 py-14">
+                <Loader />
+                {children}
+              </main>
+
+              {/* ✅ Footer - Only visible on small screens */}
               <Footer />
-            </main>
+            </div>
           </div>
-          
         </ThemeProvider>
       </body>
     </html>
