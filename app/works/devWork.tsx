@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function DevWork() {
   return (
-    <section className="lg:pr-12 lg:space-y-16 lg:w-3/4 lg:pt-24 pt-16 w-full">
+    <section className="lg:pr-12 lg:space-y-16 space-y-8 lg:w-3/4 lg:pt-24 pt-16 w-full">
       <h1 className="lg:text-3xl text-xl font-bold uppercase">Development (Coding)</h1>
       {devWorks.map((work) => (
         <div

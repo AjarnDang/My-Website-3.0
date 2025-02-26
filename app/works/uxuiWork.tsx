@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function UxuiWorks() {
   return (
-    <section className="lg:pr-12 lg:space-y-16 lg:w-3/4 w-full lg:pb-24 pb-16 border-b border-slate-300">
+    <section className="lg:pr-12 lg:space-y-16 space-y-8 lg:w-3/4 w-full lg:pb-24 pb-16 border-b border-slate-300">
       <h1 className="lg:text-3xl text-xl font-bold uppercase">UX/UI Design</h1>
       {works.map((work) => (
         <div
