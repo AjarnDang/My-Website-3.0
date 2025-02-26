@@ -37,9 +37,10 @@ export default function RootLayout({
             <main className="overflow-auto h-screen px-8 py-14">
               <Loader />
               {children}
+              <Footer />
             </main>
           </div>
-          <Footer />
+          
         </ThemeProvider>
       </body>
     </html>

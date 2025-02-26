@@ -52,6 +52,7 @@ export function HamburgerMenu() {
                   <li key={item.id}>
                     <Link
                       href={item.link}
+                      onClick={() => setIsOpen(false)}
                       className={`${
                         isActive ? "font-bold" : "opacity-75"
                       } transition-all duration-300 hover:opacity-100`}
