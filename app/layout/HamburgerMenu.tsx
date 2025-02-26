@@ -8,7 +8,6 @@ import NavMenu from "../utils/navMenu";
 import Link from "next/link";
 
 export function HamburgerMenu() {
-
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -25,7 +24,7 @@ export function HamburgerMenu() {
       {/* 🔹 Sidebar Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 dark:bg-gray-900/80 bg-white/80  z-40 transition-all"
+          className="fixed inset-0 dark:bg-gray-900/80 bg-white/80 z-40 transition-all"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -34,34 +33,39 @@ export function HamburgerMenu() {
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? "0%" : "-100%" }}
-        transition={{ type: "spring", stiffness: 80, damping: 15 }}
-        className="fixed top-0 left-0 h-full w-64 bg-slate-900 dark:bg-slate-100 text-white dark:text-[#222222] p-6 z-50 shadow-lg"
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        className="fixed top-0 left-0 h-full w-full dark:bg-slate-900 bg-slate-100 dark:text-white text-[#222222] p-6 z-50 shadow-lg"
       >
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 dark:text-[#222222] text-white"
+          className="absolute top-4 right-4 text-[#222222] dark:text-white"
         >
           <X size={32} />
         </button>
         <nav className="mt-10 space-y-4 text-2xl font-bold">
-          <ul className="flex flex-col space-y-6 list-none">
+          <ul className="flex flex-col space-y-10 list-none">
             {NavMenu.map((item) => {
-                const isActive = pathname === item.link; // Check if current route matches link
+              const isActive = pathname === item.link; // Check if current route matches link
 
-                return (
-                  <li key={item.id}>
-                    <Link
-                      href={item.link}
-                      onClick={() => setIsOpen(false)}
-                      className={`${
-                        isActive ? "font-bold" : "opacity-75"
-                      } transition-all duration-300 hover:opacity-100`}
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                );
-              })}
+              return (
+                <li
+                  key={item.id}
+                  className={`${
+                    isActive
+                      ? "py-4 px-4 rounded-lg dark:text-white text-[#222222] dark:bg-neutral-700 bg-neutral-200"
+                      : "opacity-75 px-4"
+                  } transition-all duration-300 hover:opacity-100`}
+                >
+                  <Link
+                    href={item.link}
+                    onClick={() => setIsOpen(false)}
+                    className="text-xl font-normal flex items-center gap-4"
+                  >
+                    <item.icon className="w-6 h-6" strokeWidth={3} /> {item.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </motion.div>
