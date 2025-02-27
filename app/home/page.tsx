@@ -1,10 +1,10 @@
 import React from "react";
-import Works from "./Home";
+import Home from "./Home";
 
 export default function page() {
   return (
     <div>
-      <Works />
+      <Home />
     </div>
   );
 }

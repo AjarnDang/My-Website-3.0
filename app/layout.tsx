@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased h-screen w-auto text-[#222222] bg-[#f5f5f5] dark:text-[#f5f5f5] dark:bg-[#0d1117]`}
+        className={`${inter.className} antialiased h-screen w-auto`}
       >
         <ThemeProvider
           attribute="class"

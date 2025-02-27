@@ -1,4 +1,4 @@
-import gamessenger from "@/app/images/thumbnails/dev/ga-messenger-thumbnail.png";
+/* eslint-disable @typescript-eslint/no-require-imports */
 import legel from "@/app/images/thumbnails/dev/legal-thumbnail.png";
 import wlc from "@/app/images/thumbnails/dev/wlc-thumbnail.png";
 import duckking from "@/app/images/thumbnails/dev/duckking-thumbnail.png";
@@ -7,12 +7,17 @@ import viki from "@/app/images/thumbnails/dev/viki-thumbnail.jpg";
 import spa from "@/app/images/thumbnails/dev/spa-thumbnail.jpg";
 import axons from "@/app/images/thumbnails/dev/axons-thumbnail.jpg";
 
+const importImages = (prefix: string, count: number): string[] =>
+  Array.from({ length: count }, (_, i) =>
+    require(`@/app/images/thumbnails/dev/${prefix}${i === 0 ? "" : `-${i}`}.png`).default
+  );
+
 const devWorks = [
   {
     id: 1,
     name: "GA Messenger",
     slug: "ga-messenger",
-    img: gamessenger,
+    img: require("@/app/images/thumbnails/dev/ga-messenger.png").default,
     date: "Jan 2025",
     desc: "A web application for internal use only. The purpose is to create a transportation system for a sender who want to send the package and a messenger who will be delivered that package to the assigned destination. The functions including : CRUD a task, Assign (which can be multiple added) a tasks to messenger, CRUD messenger, Zone management, etc.",
     category: "Development",
@@ -26,6 +31,7 @@ const devWorks = [
       "Toastify",
       "Nuxt UI",
     ],
+    imgGallery: importImages("ga-messenger", 4),
     link: "https://uat-ga-messenger.inet.co.th/",
     github: "",
   },
@@ -38,6 +44,7 @@ const devWorks = [
     desc: "The web application for an Internal use only. The purpose is to manage the various types of document, to summarize the information on annual report, to deliver the appropriate way of processing for each document, to manage role and permission for Legal Departments and etc.",
     category: "Development",
     tech: ["Vue.js", "Vuex", "Vuetify", "CSS", "Axios"],
+    imgGallery: [],
     link: "https://legal-uat.inet.co.th/",
     github: "",
   },
@@ -50,6 +57,7 @@ const devWorks = [
     desc: "WLC is a Web Application for anyone who wants to apply for the job and any company / business owner who wants to register their profile to the platform for recruitment. Developed by using Next.js for Applicant and Vue 2 for Company / Business Owner.",
     category: "Frontend Developer",
     tech: ["Vue.js", "Vuex", "Vuetify", "CSS", "Axios"],
+    imgGallery: [],
     link: "https://adminworklifecycle.one.th/",
     github: "",
   },
@@ -62,6 +70,7 @@ const devWorks = [
     desc: "Duck King Co., Ltd., a comprehensive duck producer, is dedicated to becoming the leading authority in the duck industry. The company continuously invests in research and development to enhance product quality, from selecting breeds and raising ducks to advanced production processes in state-of-the-art facilities. Our management system adheres to international standards, supported by highly skilled and specialized personnel. ",
     category: "Frontend Developer",
     tech: ["Vue.js", "Bootstrap", "Vuetify", "Axios"],
+    imgGallery: [],
     link: "",
     github: "",
   },
@@ -80,6 +89,7 @@ const devWorks = [
       "Data Mocking",
       "Data Binding",
     ],
+    imgGallery: [],
     link: "https://warranty.imaxpowertool.co.th/login",
     github: "",
   },
@@ -92,6 +102,7 @@ const devWorks = [
     desc: "A Website about Valorant game using Vue.js framework version 2, Vuetify and Valorant-API for Mock up data ",
     category: "Frontend Developer",
     tech: ["Vue.js", "Vuetify", "Axios", "Data Mocking", "Data Binding"],
+    imgGallery: [],
     link: "https://viki-iota.vercel.app/",
     github: "https://github.com/AjarnDang/Viki",
   },
@@ -104,6 +115,7 @@ const devWorks = [
     desc: "A Web application for product information management, purchase and sales data analysis, product management planning and more. By focusing on displaying dashboards and data tables using Next.js and Tailwind CSS (Frontend Developer)",
     category: "Frontend Developer",
     tech: ["Next.js", "Tailwind CSS", "Axios", "DevExtream"],
+    imgGallery: [],
     link: "",
     github: "",
   },
@@ -116,6 +128,7 @@ const devWorks = [
     desc: "A Project for creating and management in a company which has a variety of role or position. there's also many features. for instance, setting company information, setting roles, setting system information, setting permission and setting profile. this project using Next.js (Frontend Developer)",
     category: "Frontend Developer",
     tech: ["Next.js", "Tailwind CSS", "Axios", "DevExtream"],
+    imgGallery: [],
     link: "",
     github: "",
   },
@@ -128,6 +141,7 @@ const devWorks = [
     desc: "A Website for announcement to promote products of the Metro Systems Corporation 's IoT team using WordPress",
     category: "Frontend Developer",
     tech: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS"],
+    imgGallery: [],
     link: "https://thesuperappiot.metrosystems-des.com/",
     github: "",
   },

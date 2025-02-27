@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ImageIcon } from "lucide-react";
 import Modal from "./Modal";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ interface Work {
   name: string;
   slug: string;
   img: string;
-  imgGallery: [];
+  imgGallery?: string[];
   date: string;
   desc: string;
   category: string;
@@ -38,7 +38,7 @@ export default function WorkList({ title, works }: WorkListProps) {
         lg:pr-12 lg:space-y-16 space-y-8 xl:w-3/4 lg:w-full w-full
         ${
           title === "UX/UI Design" &&
-          "lg:pb-24 pb-16 lg:mb-24 mb-16 border-b dark:border-gray-700 border-gray-300"
+          "lg:pb-24 pb-16 lg:mb-24 mb-16 border-b border-theme"
         }
         `}
     >
@@ -56,7 +56,7 @@ export default function WorkList({ title, works }: WorkListProps) {
             //   target="_blank"
             //   className="relative block group h-fit"
             // >
-            <div>
+            <div className="relative block group h-full">
               <Image
                 src={work.img}
                 alt={work.name}
@@ -66,6 +66,11 @@ export default function WorkList({ title, works }: WorkListProps) {
                 className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-48 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-60 cursor-pointer"
                 priority
               />
+
+              <div className="flex absolute -top-3 -left-3 dark:bg-green-600 bg-green-500/80 text-white p-2 rounded-full transition-all duration-300">
+                <ImageIcon size={20} strokeWidth={2} />
+              </div>
+
               {modalVisible === work.id && (
                 <Modal
                   show={modalVisible === work.id}
@@ -83,7 +88,6 @@ export default function WorkList({ title, works }: WorkListProps) {
             //     <ArrowUpRight size={20} strokeWidth={3} />
             //   </div>
             // </Link>
-
             <div>
               <Image
                 src={work.img}

@@ -5,7 +5,7 @@ import works from "../utils/uxuiWorks";
 import Image from "next/image";
 import { Minus, ArrowRight } from "lucide-react";
 
-export default function Works() {
+export default function Home() {
   return (
     <section className="lg:pr-12">
       <div className="lg:hidden md:hidden flex flex-col gap-6 mb-12">

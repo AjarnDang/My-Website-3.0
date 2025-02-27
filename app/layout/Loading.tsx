@@ -19,7 +19,7 @@ export default function Loader() {
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center bg-slate-100 dark:bg-slate-900 dark:text-white opacity-70 text-black z-50"
+          className="fixed inset-0 flex items-center justify-center bg-[#f5f5f5] dark:bg-[#0d1117] opacity-70 z-50"
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
@@ -29,7 +29,7 @@ export default function Loader() {
             <small className="relative z-10">
               // Loading Content
               </small>
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent dark:via-white via-neutral-200 to-transparent w-full h-full animate-shine"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent dark:via-slate-700/70 via-slate-300/70 to-transparent w-full h-full animate-shine"></span>
           </div>
         </motion.div>
       )}

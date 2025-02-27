@@ -34,14 +34,16 @@ export function HamburgerMenu() {
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? "0%" : "-100%" }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        className="fixed top-0 left-0 h-full w-full dark:bg-slate-900 bg-slate-100 dark:text-white text-[#222222] p-6 z-50 shadow-lg"
+        className="fixed top-0 left-0 h-full w-full dark:bg-slate-900 bg-slate-100 p-6 z-50 shadow-lg"
       >
-        <button
-          onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 text-[#222222] dark:text-white"
-        >
-          <X size={32} />
-        </button>
+        <div className="my-4">
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-5 right-5"
+          >
+            <X size={24} />
+          </button>
+        </div>
         <nav className="mt-10 space-y-4 text-2xl font-bold">
           <ul className="flex flex-col space-y-10 list-none">
             {NavMenu.map((item) => {
@@ -52,16 +54,17 @@ export function HamburgerMenu() {
                   key={item.id}
                   className={`${
                     isActive
-                      ? "py-4 px-4 rounded-lg dark:text-white text-[#222222] dark:bg-neutral-700 bg-neutral-200"
+                      ? "py-4 px-4 rounded-lg dark:text-white text-[#222222] dark:bg-slate-800 bg-slate-200"
                       : "opacity-75 px-4"
                   } transition-all duration-300 hover:opacity-100`}
                 >
                   <Link
                     href={item.link}
                     onClick={() => setIsOpen(false)}
-                    className="text-xl font-normal flex items-center gap-4"
+                    className="text-base font-normal flex items-center gap-4"
                   >
-                    <item.icon className="w-6 h-6" strokeWidth={3} /> {item.name}
+                    <item.icon className="w-6 h-6" strokeWidth={2} />{" "}
+                    {item.name}
                   </Link>
                 </li>
               );
