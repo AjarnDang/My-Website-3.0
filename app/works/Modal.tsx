@@ -10,11 +10,11 @@ import { FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
 import Image from "next/image";
 
 // Skeleton Loader Component
-const SkeletonLoader: React.FC<{ className?: string }> = ({ className }) => (
-  <div
-    className={`bg-gray-300 dark:bg-gray-700 animate-pulse rounded-md ${className}`}
-  />
-);
+// const SkeletonLoader: React.FC<{ className?: string }> = ({ className }) => (
+//   <div
+//     className={`bg-gray-300 dark:bg-gray-700 animate-pulse rounded-md ${className}`}
+//   />
+// );
 
 const Modal: React.FC<{
   show: boolean;
