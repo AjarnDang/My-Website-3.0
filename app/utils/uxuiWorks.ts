@@ -6,22 +6,8 @@ import trademan from "@/app/images/thumbnails/uxui/trademan.png";
 import msgdsc from "@/app/images/thumbnails/uxui/msc-dsg.png";
 import toyotaidm from "@/app/images/thumbnails/uxui/toyota-idm.png";
 import ofas from "@/app/images/thumbnails/uxui/ofas.png";
-import { StaticImageData } from "next/image";
 
-interface WorkItem {
-  id: number;
-  name: string;
-  slug: string;
-  img: StaticImageData;
-  date: string;
-  desc: string;
-  category: string;
-  tech: string[];
-  link: string;
-  figma: string;
-}
-
-const works: WorkItem[] = [
+const works = [
   {
     id: 1,
     name: "0xJeff",
@@ -80,7 +66,7 @@ const works: WorkItem[] = [
       "User Persona",
       "Adobe Photoshop",
     ],
-    link: "#",
+    link: "",
     figma: "https://www.figma.com/design/XmVHtNwnSmAB2ciCVRZ5zB/THE-WATCHER?node-id=65-2280&t=A0MnszmOaT978yLt-1",
   },
   {
@@ -103,7 +89,7 @@ const works: WorkItem[] = [
       "Adobe Photoshop",
       "Responsive Web Design",
     ],
-    link: "#",
+    link: "",
     figma: "",
   },
   {

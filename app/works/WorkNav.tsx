@@ -58,9 +58,9 @@ export default function WorkNav() {
             <span
               className={`${
                 activeSection === id
-                  ? "text-green-100 font-bold"
-                  : "text-gray-300"
-              }`}
+                  ? "text-green-100"
+                  : "dark:text-gray-300 text-gray-600"
+              } font-bold`}
             >
               {label}
             </span>
@@ -69,7 +69,7 @@ export default function WorkNav() {
       </div>
 
       {/* Mobile (sm and below) - Bottom Center */}
-      <div className="lg:hidden md:flex flex fixed bottom-16 rounded-full dark:bg-neutral-800 bg-neutral-200 left-1/2 -translate-x-1/2 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl z-50">
+      <div className="lg:hidden md:flex flex fixed bottom-12 rounded-full dark:bg-neutral-800 bg-neutral-200 left-1/2 -translate-x-1/2 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl z-50">
         {sections.map(({ id, label }) => (
           <button
             key={id}
@@ -80,7 +80,7 @@ export default function WorkNav() {
               ? "dark:bg-green-800 bg-green-600"
               : "text-gray-500"
           }
-          btn items-center gap-0 text-center px-5 py-3 rounded-full transition-all duration-300 flex justify-center
+          btn items-center gap-0 text-center px-6 py-4 rounded-full transition-all duration-300 flex justify-center
         `}
           >
             <span
@@ -89,7 +89,7 @@ export default function WorkNav() {
                   ? "dark:text-green-300 text-green-200 font-bold"
                   : "dark:text-gray-300 text-neutral-800"
               }
-              text-lg`}
+              text-xl`}
             >
               {label}
             </span>

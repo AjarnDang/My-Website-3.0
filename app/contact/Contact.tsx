@@ -8,7 +8,7 @@ import Behance from "@/app/images/logo/behance.svg";
 
 export default function Contact() {
   return (
-    <section className="lg:pr-12 lg:space-y-16 space-y-12 lg:w-3/4 w-full">
+    <section className="lg:pr-12 lg:space-y-16 space-y-12 xl:w3-4 lg:w-full w-full">
       <h6 className="text-neutral-400 uppercase">Contact</h6>
       <h1 className="text-4xl font-bold uppercase">Let’s work together</h1>
       <p>

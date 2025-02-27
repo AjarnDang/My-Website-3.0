@@ -62,7 +62,7 @@ const devWorks = [
     desc: "Duck King Co., Ltd., a comprehensive duck producer, is dedicated to becoming the leading authority in the duck industry. The company continuously invests in research and development to enhance product quality, from selecting breeds and raising ducks to advanced production processes in state-of-the-art facilities. Our management system adheres to international standards, supported by highly skilled and specialized personnel. ",
     category: "Frontend Developer",
     tech: ["Vue.js", "Bootstrap", "Vuetify", "Axios"],
-    link: "https://duckking.co.th/",
+    link: "",
     github: "",
   },
   {
@@ -104,7 +104,7 @@ const devWorks = [
     desc: "A Web application for product information management, purchase and sales data analysis, product management planning and more. By focusing on displaying dashboards and data tables using Next.js and Tailwind CSS (Frontend Developer)",
     category: "Frontend Developer",
     tech: ["Next.js", "Tailwind CSS", "Axios", "DevExtream"],
-    link: "https://cpfrf-un.cpf.co.th/",
+    link: "",
     github: "",
   },
   {
@@ -116,7 +116,7 @@ const devWorks = [
     desc: "A Project for creating and management in a company which has a variety of role or position. there's also many features. for instance, setting company information, setting roles, setting system information, setting permission and setting profile. this project using Next.js (Frontend Developer)",
     category: "Frontend Developer",
     tech: ["Next.js", "Tailwind CSS", "Axios", "DevExtream"],
-    link: "https://adfs.cpf.co.th/adfs/ls/",
+    link: "",
     github: "",
   },
   {

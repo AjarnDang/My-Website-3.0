@@ -7,35 +7,62 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function DevWork() {
   return (
-    <section className="lg:pr-12 lg:space-y-16 space-y-8 lg:w-3/4 lg:pt-24 pt-16 w-full">
-      <h1 className="lg:text-3xl text-xl font-bold uppercase">Development (Coding)</h1>
+    <section className="lg:pr-12 lg:space-y-16 space-y-8 xl:w-3/4 lg:w-full lg:pt-24 pt-16 w-full">
+      <h1 className="lg:text-3xl text-xl font-bold uppercase">
+        Development (Coding)
+      </h1>
       {devWorks.map((work) => (
         <div
           key={work.id}
           className="lg:mb-12 lg:space-y-0 md:space-y-6 space-y-6 mb-8 lg:flex md:block block gap-8"
         >
           {/* href={`/works/${work.slug}`} */}
-          <Link href={work.link} target="_blank">
-            <Image
-              src={work.img}
-              alt={work.name}
-              width={0}
-              height={0}
-              className="max-w-80 w-80 h-40 min-w-auto max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-75 cursor-pointer"
-              priority
-            />
-          </Link>
+          {work.link != "" ? (
+            <Link
+              href={work.link}
+              target="_blank"
+              className="relative block group h-fit"
+            >
+              <Image
+                src={work.img}
+                alt={work.name}
+                width={0}
+                height={0}
+                className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-60 cursor-pointer"
+                priority
+              />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <ArrowUpRight size={20} />
+              </div>
+            </Link>
+          ) : (
+            <div>
+              <Image
+                src={work.img}
+                alt={work.name}
+                width={0}
+                height={0}
+                className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg opacity-50 cursor-default"
+                priority
+              />
+            </div>
+          )}
+
           <div>
             <div className="flex justify-between flex-wrap items-center">
               <div>
                 {/* href={`/works/${work.slug}`} */}
-                <Link
-                  href={work.link}
-                  target="_blank"
-                  className="lg:text-2xl text-xl font-bold"
-                >
-                  {work.name}
-                </Link>
+                {work.link != "" ? (
+                  <Link
+                    href={work.link}
+                    target="_blank"
+                    className="lg:text-2xl text-xl font-bold"
+                  >
+                    {work.name}
+                  </Link>
+                ) : (
+                  <p className="lg:text-2xl text-xl font-bold">{work.name}</p>
+                )}
 
                 <h6 className="text-slate-500">{work.date}</h6>
               </div>

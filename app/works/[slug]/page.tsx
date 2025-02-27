@@ -17,7 +17,7 @@ export default function WorkDetail({ params }: WorkDetailProps) {
 
   return (
     <div className="flex justify-center">
-      <section className="lg:pr-12 lg:space-y-12 lg:w-3/4 w-full">
+      <section className="lg:pr-12 lg:space-y-12 xl:w3-4 lg:w-full w-full">
         <div className="mb-8 flex justify-between items-center">
           <Link href="/works">
             <ArrowLeft className="opacity-50 hover:opacity-100 transition-opacity" />

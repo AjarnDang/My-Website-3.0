@@ -7,7 +7,7 @@ import { Minus } from "lucide-react";
 
 export default function About() {
   return (
-    <section className="lg:pr-12 lg:space-y-12 space-y-8 lg:w-3/4 w-full relative">
+    <section className="lg:pr-12 lg:space-y-12 space-y-8 xl:w3-4 lg:w-full w-full relative">
       <Image
         src={me}
         width={0}
