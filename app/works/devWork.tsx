@@ -42,7 +42,7 @@ export default function DevWork() {
                 alt={work.name}
                 width={0}
                 height={0}
-                className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg opacity-50 cursor-default"
+                className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg cursor-default"
                 priority
               />
             </div>
