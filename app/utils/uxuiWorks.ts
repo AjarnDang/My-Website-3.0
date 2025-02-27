@@ -1,5 +1,3 @@
-import oxjeff from "@/app/images/thumbnails/uxui/0xjeff.png";
-import dabuzzzz from "@/app/images/thumbnails/uxui/dabuzzzz.png";
 import thewatcher from "@/app/images/thumbnails/uxui/the-watcher.png";
 import runads from "@/app/images/thumbnails/uxui/runads.png";
 import trademan from "@/app/images/thumbnails/uxui/trademan.png";
@@ -7,14 +5,19 @@ import msgdsc from "@/app/images/thumbnails/uxui/msc-dsg.png";
 import toyotaidm from "@/app/images/thumbnails/uxui/toyota-idm.png";
 import ofas from "@/app/images/thumbnails/uxui/ofas.png";
 
-const works = [
+const importImages = (prefix: string, count: number): string[] =>
+  Array.from({ length: count }, (_, i) =>
+    require(`@/app/images/thumbnails/uxui/${prefix}${i === 0 ? "" : `-${i}`}.png`).default
+  );
+
+const uxuiWorks = [
   {
     id: 1,
     name: "0xJeff",
     slug: "0xjeff",
-    img: oxjeff,
+    img: require("@/app/images/thumbnails/uxui/0xjeff.png").default,
     date: "Feb 2025",
-    desc: "Personal Web Application for @Defi0xJeff at Twitter (X) inspired by Web3, Blockchain, Crypto, NFTs and other modern technologies which include the Etherium, KPVerse, Optimism, etc.",
+    desc: "Personal Web Application for @Defi0xJeff at Twitter (X) inspired by Web3, Blockchain, Crypto, NFTs...",
     category: "UX/UI Design",
     tech: [
       "Figma",
@@ -26,15 +29,16 @@ const works = [
       "Responsive Web Design",
     ],
     link: "https://0xjeff.framer.website/",
+    imgGallery: importImages("0xjeff", 4),
     figma: "",
   },
   {
     id: 2,
     name: "DABUZZZZ",
     slug: "dabuzzzz",
-    img: dabuzzzz,
+    img: require("@/app/images/thumbnails/uxui/dabuzzzz.png").default,
     date: "Oct 2024",
-    desc: "Dabuzzzz Style Studio, where every cut, color, and style is crafted with passion and precision! We are a full-service hair studio dedicated to the art of modern barbering and hairstyling, offering a personalized experience that combines high-quality techniques with a fresh, trendy approach.",
+    desc: "Dabuzzzz Style Studio, where every cut, color, and style is crafted with passion and precision...",
     category: "UX/UI Design",
     tech: [
       "Figma",
@@ -47,7 +51,9 @@ const works = [
       "Typography",
     ],
     link: "https://dabuzzzz.vercel.app/",
-    figma: "https://www.figma.com/design/GKKKB5ceWoObrlR7rXM3Ex/DABUZZZZ-HAIR-STUDIO?node-id=1-35&t=0FQd1rta5Nn3Z3eT-1",
+    imgGallery: importImages("dabuzzzz", 6),
+    figma:
+      "https://www.figma.com/design/GKKKB5ceWoObrlR7rXM3Ex/DABUZZZZ-HAIR-STUDIO?node-id=1-35&t=0FQd1rta5Nn3Z3eT-1",
   },
   {
     id: 3,
@@ -67,7 +73,9 @@ const works = [
       "Adobe Photoshop",
     ],
     link: "",
-    figma: "https://www.figma.com/design/XmVHtNwnSmAB2ciCVRZ5zB/THE-WATCHER?node-id=65-2280&t=A0MnszmOaT978yLt-1",
+    imgGallery: [],
+    figma:
+      "https://www.figma.com/design/XmVHtNwnSmAB2ciCVRZ5zB/THE-WATCHER?node-id=65-2280&t=A0MnszmOaT978yLt-1",
   },
   {
     id: 4,
@@ -90,6 +98,7 @@ const works = [
       "Responsive Web Design",
     ],
     link: "",
+    imgGallery: [],
     figma: "",
   },
   {
@@ -111,7 +120,9 @@ const works = [
       "Adobe Photoshop",
     ],
     link: "https://trademan.in.th/",
-    figma: "https://www.figma.com/design/VlS19VWPMGFigFN6aNyLr6/Trademan?node-id=292-166&t=7WTufNiVRC0ZEKaV-1",
+    imgGallery: [],
+    figma:
+      "https://www.figma.com/design/VlS19VWPMGFigFN6aNyLr6/Trademan?node-id=292-166&t=7WTufNiVRC0ZEKaV-1",
   },
   {
     id: 6,
@@ -132,7 +143,9 @@ const works = [
       "Adobe Photoshop",
     ],
     link: "https://www.metrosystems.co.th/business-units/dsg/",
-    figma: "https://www.figma.com/design/bH2nDF2Su4xQn4VZGUqTGo/Metrosystems-DSG?node-id=0-1&t=AEu1mRR2N4hODLyK-1",
+    imgGallery: [],
+    figma:
+      "https://www.figma.com/design/bH2nDF2Su4xQn4VZGUqTGo/Metrosystems-DSG?node-id=0-1&t=AEu1mRR2N4hODLyK-1",
   },
   {
     id: 7,
@@ -155,6 +168,7 @@ const works = [
       "Responsive Web Design",
     ],
     link: "https://www.metrosystems.co.th/business-units/dsg/",
+    imgGallery: [],
     figma: "",
   },
   {
@@ -178,8 +192,9 @@ const works = [
       "Responsive Web Design",
     ],
     link: "https://ofas.chula.ac.th/",
+    imgGallery: [],
     figma: "",
   },
 ];
 
-export default works;
+export default uxuiWorks;

@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { Minus } from "lucide-react";
 
 const sections = [
-  { id: "uxui-works", label: "UX/UI" },
-  { id: "dev-works", label: "DEV" },
+  { id: "uxui-works", label: "UX / UI" },
+  { id: "dev-works", label: "CODING" },
 ];
 
 export default function WorkNav() {
@@ -40,7 +40,7 @@ export default function WorkNav() {
   return (
     <>
       {/* Desktop (md and up) - Right Center */}
-      <div className="hidden md:hidden lg:block fixed transform top-1/2 right-6 -translate-y-1/2 space-y-4 z-50">
+      <div className="hidden lg:hidden xl:block fixed transform top-1/2 right-6 -translate-y-1/2 space-y-4 z-10">
         {sections.map(({ id, label }) => (
           <button
             key={id}
@@ -60,7 +60,7 @@ export default function WorkNav() {
                 activeSection === id
                   ? "text-green-100"
                   : "dark:text-gray-300 text-gray-600"
-              } font-bold`}
+              } font-bold text-lg`}
             >
               {label}
             </span>
@@ -69,7 +69,7 @@ export default function WorkNav() {
       </div>
 
       {/* Mobile (sm and below) - Bottom Center */}
-      <div className="lg:hidden md:flex flex fixed bottom-12 rounded-full dark:bg-neutral-800 bg-neutral-200 left-1/2 -translate-x-1/2 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl z-50">
+      <div className="xl:hidden lg:flex flex fixed bottom-12 rounded-full dark:bg-neutral-800 bg-neutral-200 left-1/2 -translate-x-1/2 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl z-10">
         {sections.map(({ id, label }) => (
           <button
             key={id}
@@ -80,16 +80,16 @@ export default function WorkNav() {
               ? "dark:bg-green-800 bg-green-600"
               : "text-gray-500"
           }
-          btn items-center gap-0 text-center px-6 py-4 rounded-full transition-all duration-300 flex justify-center
+          btn items-center gap-0 text-center px-6 py-4 rounded-full transition-all duration-300 flex justify-center w-36
         `}
           >
             <span
               className={`${
                 activeSection === id
-                  ? "dark:text-green-300 text-green-200 font-bold"
+                  ? "dark:text-green-300 text-green-200"
                   : "dark:text-gray-300 text-neutral-800"
               }
-              text-xl`}
+              text-lg font-bold`}
             >
               {label}
             </span>

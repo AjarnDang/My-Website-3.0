@@ -12,22 +12,37 @@ html {
 }
 
 :root {
-  --swiper-pagination-bullet-inactive-color: #000; /* Black bullets */
+  --swiper-pagination-bullet-inactive-color: #000;
+  /* Black bullets */
 }
 
 @keyframes shine {
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(100%);
   }
 }
 
+.swiper-pagination,
+.swiper-pagination-fraction,
+.swiper-pagination-horizontal,
+.swiper-pagination .swiper-pagination-fraction .swiper-pagination-horizontal {
+  /* position: absolute;
+  bottom: 4px;
+  left: 50%; */
+  height: fit-content;
+  text-align: center;
+  margin-top: 1rem;
+  /* z-index: 100; */
+  /* transform: translate(-50%, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1); */
+}
+
 .animate-shine {
   animation: shine 1.5s infinite linear;
 }
-
 
 @layer utilities {
   .text-balance {
