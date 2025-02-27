@@ -1,6 +1,6 @@
-import thewatcher from "@/app/images/thumbnails/uxui/the-watcher.png";
+/* eslint-disable @typescript-eslint/no-require-imports */
+
 import runads from "@/app/images/thumbnails/uxui/runads.png";
-import trademan from "@/app/images/thumbnails/uxui/trademan.png";
 import msgdsc from "@/app/images/thumbnails/uxui/msc-dsg.png";
 import toyotaidm from "@/app/images/thumbnails/uxui/toyota-idm.png";
 import ofas from "@/app/images/thumbnails/uxui/ofas.png";
@@ -51,7 +51,7 @@ const uxuiWorks = [
       "Typography",
     ],
     link: "https://dabuzzzz.vercel.app/",
-    imgGallery: importImages("dabuzzzz", 6),
+    imgGallery: importImages("dabuzzzz", 8),
     figma:
       "https://www.figma.com/design/GKKKB5ceWoObrlR7rXM3Ex/DABUZZZZ-HAIR-STUDIO?node-id=1-35&t=0FQd1rta5Nn3Z3eT-1",
   },
@@ -59,7 +59,7 @@ const uxuiWorks = [
     id: 3,
     name: "The Watcher",
     slug: "the-watcher",
-    img: thewatcher,
+    img: require("@/app/images/thumbnails/uxui/the-watcher.png").default,
     date: "Oct 2024",
     desc: "The Watcher is mini project of web design. The project is about Smart Watch with a modern theme, flawless looks and elegant design. The key point is to create a Landing page for purchasing Smart Watch with some detail of the product.",
     category: "UX/UI Design",
@@ -73,7 +73,7 @@ const uxuiWorks = [
       "Adobe Photoshop",
     ],
     link: "",
-    imgGallery: [],
+    imgGallery: importImages("the-watcher", 7),
     figma:
       "https://www.figma.com/design/XmVHtNwnSmAB2ciCVRZ5zB/THE-WATCHER?node-id=65-2280&t=A0MnszmOaT978yLt-1",
   },
@@ -105,7 +105,7 @@ const uxuiWorks = [
     id: 5,
     name: "Trademan",
     slug: "trademan",
-    img: trademan,
+    img: require("@/app/images/thumbnails/uxui/trademan.png").default,
     date: "Apr 2024",
     desc: "Trademan is a web application that trades Thai stocks through a browser developed by Effin. And a team specialized in programs and application trading systems used by Thai people for a long time, such as efin StockPickUp/ Efin Trade Plus/efin Mobile.",
     category: "UX/UI Design",
@@ -120,7 +120,7 @@ const uxuiWorks = [
       "Adobe Photoshop",
     ],
     link: "https://trademan.in.th/",
-    imgGallery: [],
+    imgGallery: importImages("trademan", 3),
     figma:
       "https://www.figma.com/design/VlS19VWPMGFigFN6aNyLr6/Trademan?node-id=292-166&t=7WTufNiVRC0ZEKaV-1",
   },

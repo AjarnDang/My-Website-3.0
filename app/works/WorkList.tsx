@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import Modal from "../components/Modal";
+import Modal from "./Modal";
 import { useState } from "react";
 
 interface Work {
@@ -116,7 +116,7 @@ export default function WorkList({ title, works }: WorkListProps) {
               {/* Figma or GitHub Button */}
               {work.figma && (
                 <Link href={work.figma} target="_blank">
-                  <button className="rounded-full relative h-10 w-28 overflow-hidden bg-neutral-800 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
+                  <button className="rounded-full relative h-10 w-28 overflow-hidden bg-neutral-700 dark:bg-neutral-600 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
                     <span className="relative">Figma</span>
                     {/* <ArrowUpRight className="inline-block ml-1 h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none translate-y-px" /> */}
                   </button>
@@ -125,7 +125,7 @@ export default function WorkList({ title, works }: WorkListProps) {
 
               {work.github && (
                 <Link href={work.github} target="_blank">
-                  <button className="rounded-full relative h-10 w-28 overflow-hidden bg-neutral-800 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
+                  <button className="rounded-full relative h-10 w-28 overflow-hidden bg-neutral-700 dark:bg-neutral-600 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
                     <span className="relative">GitHub</span>
                     {/* <ArrowUpRight className="inline-block ml-1 h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none translate-y-px" /> */}
                   </button>
