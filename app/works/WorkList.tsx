@@ -63,7 +63,7 @@ export default function WorkList({ title, works }: WorkListProps) {
                 width={0}
                 height={0}
                 onClick={() => handleOpenModal(work.id)} // Open modal with specific work id
-                className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-48 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-60 cursor-pointer"
+                className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-60 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-60 cursor-pointer"
                 priority
               />
 
@@ -120,7 +120,7 @@ export default function WorkList({ title, works }: WorkListProps) {
               {/* Figma or GitHub Button */}
               {work.figma && (
                 <Link href={work.figma} target="_blank">
-                  <button className="rounded-full relative h-10 w-28 overflow-hidden bg-neutral-700 dark:bg-neutral-600 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
+                  <button className="rounded-full relative h-10 w-28 overflow-hidden bg-neutral-700 dark:bg-neutral-800 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
                     <span className="relative">Figma</span>
                     {/* <ArrowUpRight className="inline-block ml-1 h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none translate-y-px" /> */}
                   </button>
@@ -129,7 +129,7 @@ export default function WorkList({ title, works }: WorkListProps) {
 
               {work.github && (
                 <Link href={work.github} target="_blank">
-                  <button className="rounded-full relative h-10 w-28 overflow-hidden bg-neutral-700 dark:bg-neutral-600 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
+                  <button className="rounded-full relative h-10 w-28 overflow-hidden bg-neutral-700 dark:bg-neutral-800 text-white shadow-2xl transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:before:-translate-x-40 group/link">
                     <span className="relative">GitHub</span>
                     {/* <ArrowUpRight className="inline-block ml-1 h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none translate-y-px" /> */}
                   </button>

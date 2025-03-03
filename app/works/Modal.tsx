@@ -1,41 +1,44 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import "swiper/css/thumbs";
+import "swiper/css/pagination";
 import { X } from "lucide-react";
-import { FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
+import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
-
-// Skeleton Loader Component
-// const SkeletonLoader: React.FC<{ className?: string }> = ({ className }) => (
-//   <div
-//     className={`bg-gray-300 dark:bg-gray-700 animate-pulse rounded-md ${className}`}
-//   />
-// );
 
 const Modal: React.FC<{
   show: boolean;
   onClose: () => void;
   imgGallery: string[];
 }> = ({ show, onClose, imgGallery }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-  const [loadingImages, setLoadingImages] = useState<boolean[]>(
-    imgGallery.map(() => true)
-  );
+  const [loadingImages, setLoadingImages] = useState<boolean[]>(imgGallery.map(() => true));
+
+  // Disable scrolling when modal is open
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [show]);
 
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-md z-50 animate-fadeIn">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-md z-50 animate-fadeIn">
       {/* Modal Content */}
-      <div className="relative w-full h-screen md:w-full md:h-screen lg:w-3/5 lg:max-h-[80vh] bg-neutral-100 dark:bg-neutral-800 shadow-lg p-6 md:rounded-none lg:rounded-2xl overflow-auto">
+      <div className="relative w-full h-screen md:w-4/5 md:h-5/6 lg:w-3/5 lg:max-h-[85vh] bg-neutral-100 dark:bg-neutral-800 shadow-lg p-6 md:rounded-lg overflow-hidden flex flex-col">
         {/* Close Button */}
-        <div className="mb-4 flex justify-end">
+        <div className="absolute top-4 right-4">
           <button
-            className="hover:opacity-70"
+            className="hover:opacity-70 p-2 bg-gray-200 dark:bg-gray-700 rounded-full"
             onClick={onClose}
             aria-label="Close Modal"
           >
@@ -44,77 +47,39 @@ const Modal: React.FC<{
         </div>
 
         {/* Main Image Gallery */}
-        <div className="flex-1 flex flex-col">
-          <div className="relative flex-1">
-            <Swiper
-              pagination={{ type: "fraction" }}
-              spaceBetween={10}
-              navigation={false}
-              thumbs={{ swiper: thumbsSwiper }}
-              modules={[FreeMode, Navigation, Pagination, Thumbs]}
-              className="relative"
-            >
-              {imgGallery.map((img, index) => (
-                <SwiperSlide key={index}>
-                  {/* Show skeleton while loading */}
-                  {loadingImages[index] && (
-                    <div className="w-full h-full bg-gray-300 dark:bg-gray-700 animate-pulse" />
-                  )}
+        <div className="flex-1 flex items-center justify-center">
+          <Swiper
+            pagination={{ type: "fraction" }}
+            spaceBetween={10}
+            navigation={true}
+            modules={[FreeMode, Navigation, Pagination]}
+            className="relative w-full"
+          >
+            {imgGallery.map((img, index) => (
+              <SwiperSlide key={index} className="flex items-center justify-center">
+                {loadingImages[index] && (
+                  <div className="w-full h-full bg-gray-300 dark:bg-gray-700 animate-pulse rounded-md" />
+                )}
 
-                  <Image
-                    src={img}
-                    className={`max-h-full h-[50vh] lg:min-h-full min-h-[70vh] w-full object-contain object-center rounded-md border border-gray-400 dark:border-gray-200 transition-opacity duration-300 ${
-                      loadingImages[index] ? "opacity-20" : "opacity-100"
-                    }`}
-                    alt={`Slide ${index + 1}`}
-                    onLoad={() => {
-                      setLoadingImages((prev) => {
-                        const updated = [...prev];
-                        updated[index] = false;
-                        return updated;
-                      });
-                    }}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-          {/* Thumbnail Navigation */}
-          <div>
-            <Swiper
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={4}
-              freeMode={true}
-              watchSlidesProgress={true}
-              modules={[FreeMode, Navigation, Thumbs]}
-              className="mt-4"
-            >
-              {imgGallery.map((img, index) => (
-                <SwiperSlide key={index} className="cursor-pointer">
-                  {/* Show skeleton while loading */}
-                  {loadingImages[index] && (
-                    <div className="w-full max-h-24 bg-gray-300 dark:bg-gray-700 animate-pulse" />
-                  )}
-
-                  <Image
-                    src={img}
-                    className={`w-full max-h-24 h-24 object-cover rounded-md border border-gray-400 dark:border-gray-200 transition-opacity duration-300 ${
-                      loadingImages[index] ? "opacity-20" : "opacity-100"
-                    }`}
-                    alt={`Thumb ${index + 1}`}
-                    onLoad={() => {
-                      setLoadingImages((prev) => {
-                        const updated = [...prev];
-                        updated[index] = false;
-                        return updated;
-                      });
-                    }}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+                <Image
+                  src={img}
+                  width={800}
+                  height={600}
+                  className={`w-auto h-auto max-w-full max-h-[70vh] object-contain rounded-md border border-gray-400 dark:border-gray-200 transition-opacity duration-300 ${
+                    loadingImages[index] ? "opacity-20" : "opacity-100"
+                  }`}
+                  alt={`Slide ${index + 1}`}
+                  onLoad={() => {
+                    setLoadingImages((prev) => {
+                      const updated = [...prev];
+                      updated[index] = false;
+                      return updated;
+                    });
+                  }}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>
