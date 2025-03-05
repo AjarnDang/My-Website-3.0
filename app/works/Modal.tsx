@@ -49,7 +49,7 @@ const Modal: React.FC<{
       {/* Modal Content */}
       <div className="relative w-full h-screen md:w-4/5 md:h-5/6 lg:w-3/5 lg:max-h-[85vh] bg-neutral-100 dark:bg-neutral-800 shadow-lg p-6 md:rounded-lg overflow-hidden flex flex-col">
         {/* Close Button */}
-        <div className="absolute top-10 right-4">
+        <div className="absolute top-12 right-4">
           <button
             className="hover:opacity-70 p-2 bg-gray-200 dark:bg-gray-700 rounded-full"
             onClick={onClose}
