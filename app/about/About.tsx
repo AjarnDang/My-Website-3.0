@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-// import avatar from "@/app/images/others/avatar.jpg";
 import me from "@/app/images/others/me_2.png";
 import Experiences from "./Experiences";
 import { Minus } from "lucide-react";
@@ -25,12 +24,12 @@ export default function About() {
       </div>
       <h1 className="lg:text-4xl text-2xl font-bold">Thornthan Jomtharak</h1>
       <p className="leading-6">
-        Hey, Thornthan's here! I'm a Web Developer and UX/UI Designer who always inspired, fresh, and never stops learning.
+        Hey, Thornthan&apos;s here! I&apos;m a Web Developer and UX/UI Designer who always inspired, fresh, and never stops learning.
       </p>
       <p className="leading-6">
         With a background in Information Technology and more than two years of industry experience, I specialize in designing and building
         functional, modern, and intuitive interfaces. Currently, I work full-time as a UX/UI Designer, where I bring ideas to life through
-        Next.js, TypeScript, and Framer. Beyond design, I'm always exploring Web3 technologies, experimenting with decentralized applications
+        Next.js, TypeScript, and Framer. Beyond design, I&apos;m always exploring Web3 technologies, experimenting with decentralized applications
         (dApps), blockchain UX, and digital ownership.
       </p>
 
