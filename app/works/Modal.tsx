@@ -127,7 +127,7 @@ const Modal: React.FC<{
                 {/* Skeleton loader */}
                 {loadingImages[index] && (
                   <div className="w-full h-[70vh] bg-gray-300 dark:bg-gray-700 animate-pulse rounded-md flex items-center justify-center">
-                    <div className="text-sm text-gray-500 dark:text-gray-400">กำลังโหลด...</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">Loading...</div>
                   </div>
                 )}
 

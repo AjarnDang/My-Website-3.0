@@ -143,7 +143,7 @@ const uxuiWorks = [
       "Adobe Photoshop",
     ],
     link: "",
-    imgGallery: [],
+    imgGallery: importImages("msc-dsg", 5),
     figma:
       "https://www.figma.com/design/bH2nDF2Su4xQn4VZGUqTGo/Metrosystems-DSG?node-id=0-1&t=AEu1mRR2N4hODLyK-1",
   },
@@ -167,8 +167,8 @@ const uxuiWorks = [
       "Bootstrap 5",
       "Responsive Web Design",
     ],
-    link: "https://www.metrosystems.co.th/business-units/dsg/",
-    imgGallery: [],
+    link: "",
+    imgGallery: importImages("toyota-idm", 10),
     figma: "",
   },
   {
@@ -192,7 +192,7 @@ const uxuiWorks = [
       "Responsive Web Design",
     ],
     link: "https://ofas.chula.ac.th/",
-    imgGallery: [],
+    imgGallery: importImages("ofas", 7),
     figma: "",
   },
 ];
