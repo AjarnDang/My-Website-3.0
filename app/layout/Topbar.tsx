@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SwitchTheme from "./SwitchTheme";
-import { HamburgerMenu } from "./HamburgerMenu";
+import HamburgerMenu from "./HamburgerMenu";
 import Logo from "../images/logo/logo.jpg";
 
 export default function Topbar() {

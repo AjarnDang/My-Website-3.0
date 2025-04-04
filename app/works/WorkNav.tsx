@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import { Minus } from "lucide-react";
 
 const sections = [
@@ -8,7 +8,8 @@ const sections = [
   { id: "dev-works", label: "CODING" },
 ];
 
-export default function WorkNav() {
+// ใช้ memo เพื่อลดการ re-render ที่ไม่จำเป็น
+const WorkNav = memo(function WorkNav() {
   const [activeSection, setActiveSection] = useState("uxui-works");
 
   useEffect(() => {
@@ -69,7 +70,7 @@ export default function WorkNav() {
       </div>
 
       {/* Mobile (sm and below) - Bottom Center */}
-      <div className="xl:hidden lg:flex flex fixed bottom-12 rounded-full dark:bg-neutral-800 bg-neutral-200 left-1/2 -translate-x-1/2 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl z-10">
+      <div className="xl:hidden lg:flex flex fixed bottom-12 rounded-full dark:bg-neutral-800 bg-neutral-200 left-1/2 -translate-x-1/2 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl z-50">
         {sections.map(({ id, label }) => (
           <button
             key={id}
@@ -98,4 +99,9 @@ export default function WorkNav() {
       </div>
     </>
   );
-}
+});
+
+// เพิ่ม displayName เพื่อให้ React DevTools แสดงชื่อที่ถูกต้อง
+WorkNav.displayName = "WorkNav";
+
+export default WorkNav;

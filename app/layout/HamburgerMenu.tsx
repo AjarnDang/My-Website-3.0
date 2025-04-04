@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import NavMenu from "../utils/navMenu";
 import Link from "next/link";
 
-export function HamburgerMenu() {
+// ใช้ memo เพื่อป้องกันการ re-render ที่ไม่จำเป็น
+const HamburgerMenu = memo(function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -74,4 +75,10 @@ export function HamburgerMenu() {
       </motion.div>
     </>
   );
-}
+});
+
+// เพิ่ม displayName เพื่อให้ React DevTools แสดงชื่อที่ถูกต้อง
+HamburgerMenu.displayName = "HamburgerMenu";
+
+// เปลี่ยนจาก export function เป็น export default
+export default HamburgerMenu;

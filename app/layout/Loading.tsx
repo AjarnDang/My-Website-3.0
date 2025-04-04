@@ -2,15 +2,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Loader() {
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   
-  // ใช้ทั้ง pathname และ searchParams เพื่อตรวจจับการเปลี่ยนแปลงของ URL
+  // ใช้เฉพาะ pathname เพื่อตรวจจับการเปลี่ยนแปลงของ URL
+  // เอา useSearchParams ออกเพื่อหลีกเลี่ยงปัญหา Suspense boundary
   useEffect(() => {
     const handleRouteChange = () => {
       setIsLoading(true);
@@ -23,7 +23,7 @@ export default function Loader() {
     const timeout = setTimeout(() => setIsLoading(false), 1000);
     
     return () => clearTimeout(timeout);
-  }, [pathname, searchParams]); // เริ่มโหลดใหม่เมื่อ URL เปลี่ยน
+  }, [pathname]); // เริ่มโหลดใหม่เมื่อ pathname เปลี่ยน (ไม่ใช้ searchParams)
 
   return (
     <AnimatePresence>

@@ -5,6 +5,7 @@ import StickySideNav from "./layout/StickySideNav";
 import Loader from "./layout/Loading";
 import Topbar from "./layout/Topbar";
 import Footer from "./layout/Footer";
+import { Suspense } from "react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,11 +30,20 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="theme-preference"
         >
-          <Loader />
-          <Topbar />
+          {/* Wrap Loader in Suspense */}
+          <Suspense fallback={null}>
+            <Loader />
+          </Suspense>
+          
+          <Suspense fallback={null}>
+            <Topbar />
+          </Suspense>
+          
           <div className="grid lg:grid-cols-[300px_1fr] md:grid-cols-[250px_1fr] h-screen justify-between lg:gap-32 gap-12">
             <div className="pl-12">
-              <StickySideNav />
+              <Suspense fallback={null}>
+                <StickySideNav />
+              </Suspense>
             </div>
 
             {/* ✅ Added a wrapper for main content to ensure proper height */}
@@ -43,7 +53,9 @@ export default function RootLayout({
               </main>
 
               {/* ✅ Footer - Only visible on small screens */}
-              <Footer />
+              <Suspense fallback={null}>
+                <Footer />
+              </Suspense>
             </div>
           </div>
         </ThemeProvider>
