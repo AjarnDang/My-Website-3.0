@@ -18,7 +18,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className} antialiased h-screen w-auto`}
       >
@@ -27,7 +27,9 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          storageKey="theme-preference"
         >
+          <Loader />
           <Topbar />
           <div className="grid lg:grid-cols-[300px_1fr] md:grid-cols-[250px_1fr] h-screen justify-between lg:gap-32 gap-12">
             <div className="pl-12">
@@ -37,7 +39,6 @@ export default function RootLayout({
             {/* ✅ Added a wrapper for main content to ensure proper height */}
             <div className="flex flex-col h-full">
               <main className="overflow-auto relative min-h-screen flex-grow px-8 py-14">
-                <Loader />
                 {children}
               </main>
 

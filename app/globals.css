@@ -11,6 +11,7 @@
   --text-color: #222222;
   --bg-color: #f5f5f5;
   --border-color: #d1d5db;
+  --theme-transition-duration: 0.7s;
 }
 
 /* Dark Mode */
@@ -27,6 +28,15 @@ html {
 /* Apply to Body */
 body {
   @apply text-[var(--text-color)] bg-[var(--bg-color)];
+  will-change: background-color, color;
+  transition: background-color var(--theme-transition-duration) ease,
+             color var(--theme-transition-duration) ease;
+}
+
+.border-theme, .topbar, h1, h2, h3, h4, h5, h6, p, span, div {
+  transition: background-color var(--theme-transition-duration) ease-in-out,
+              color var(--theme-transition-duration) ease-in-out,
+              border-color var(--theme-transition-duration) ease-in-out;
 }
 
 .border-theme {
@@ -73,6 +83,27 @@ body {
 
 .animate-shine {
   animation: shine 1.5s infinite linear;
+}
+
+.theme-fade-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  will-change: opacity;
+}
+
+.theme-fade-overlay.active {
+  opacity: 0.3;
+  pointer-events: auto;
+}
+
+.theme-icon {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
 }
 
 @layer utilities {
