@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 // import avatar from "@/app/images/others/avatar.jpg";
-import me from "@/app/images/others/me_1.jpg";
+import me from "@/app/images/others/me_2.png";
 import Experiences from "./Experiences";
 import { Minus } from "lucide-react";
 

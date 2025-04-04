@@ -98,7 +98,7 @@ const uxuiWorks = [
       "Responsive Web Design",
     ],
     link: "",
-    imgGallery: [],
+    imgGallery:  importImages("runads", 9),
     figma: "",
   },
   {

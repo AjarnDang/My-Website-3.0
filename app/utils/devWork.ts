@@ -6,10 +6,15 @@ import imax from "@/app/images/thumbnails/dev/imax-thumbnail.jpg";
 import viki from "@/app/images/thumbnails/dev/viki-thumbnail.jpg";
 import spa from "@/app/images/thumbnails/dev/spa-thumbnail.jpg";
 import axons from "@/app/images/thumbnails/dev/axons-thumbnail.jpg";
+import digitalWorkflow from "@/app/images/thumbnails/dev/dw-thumbnail.png";
 
 const importImages = (prefix: string, count: number): string[] =>
-  Array.from({ length: count }, (_, i) =>
-    require(`@/app/images/thumbnails/dev/${prefix}${i === 0 ? "" : `-${i}`}.png`).default
+  Array.from(
+    { length: count },
+    (_, i) =>
+      require(`@/app/images/thumbnails/dev/${prefix}${
+        i === 0 ? "" : `-${i}`
+      }.png`).default
   );
 
 const devWorks = [
@@ -143,6 +148,19 @@ const devWorks = [
     tech: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS"],
     imgGallery: [],
     link: "https://thesuperappiot.metrosystems-des.com/",
+    github: "",
+  },
+  {
+    id: 10,
+    name: "Digital Workflow",
+    slug: "digital-workflow",
+    img: digitalWorkflow,
+    date: "Mar 2025",
+    desc: "An internal web application for company in purpose of document management. Eg. Group management (insurance). Developed by using Next 15, Tailwind CSS with Ant Design.",
+    category: "Frontend Developer",
+    tech: ["Next.js", "Tailwind CSS", "Ant Design", "Axios", "Redux Toolkit", "React-pdf", "Fabric.js"],
+    imgGallery: [],
+    link: "https://digitalflow.one.th/v2/login",
     github: "",
   },
 ];
