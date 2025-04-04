@@ -142,7 +142,7 @@ const uxuiWorks = [
       "Typography",
       "Adobe Photoshop",
     ],
-    link: "https://www.metrosystems.co.th/business-units/dsg/",
+    link: "",
     imgGallery: [],
     figma:
       "https://www.figma.com/design/bH2nDF2Su4xQn4VZGUqTGo/Metrosystems-DSG?node-id=0-1&t=AEu1mRR2N4hODLyK-1",

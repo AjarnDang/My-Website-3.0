@@ -15,7 +15,20 @@ const Modal: React.FC<{
   onClose: () => void;
   imgGallery: string[];
 }> = ({ show, onClose, imgGallery }) => {
-  const [loadingImages, setLoadingImages] = useState<boolean[]>(imgGallery.map(() => true));
+  const [loadingImages, setLoadingImages] = useState<boolean[]>(
+    imgGallery.map(() => true)
+  );
+  const [disableNavigation, setDisableNavigation] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDisableNavigation(window.innerWidth < 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Disable scrolling when modal is open
   useEffect(() => {
@@ -36,7 +49,7 @@ const Modal: React.FC<{
       {/* Modal Content */}
       <div className="relative w-full h-screen md:w-4/5 md:h-5/6 lg:w-3/5 lg:max-h-[85vh] bg-neutral-100 dark:bg-neutral-800 shadow-lg p-6 md:rounded-lg overflow-hidden flex flex-col">
         {/* Close Button */}
-        <div className="absolute top-4 right-4">
+        <div className="absolute top-12 right-4">
           <button
             className="hover:opacity-70 p-2 bg-gray-200 dark:bg-gray-700 rounded-full"
             onClick={onClose}
@@ -51,12 +64,15 @@ const Modal: React.FC<{
           <Swiper
             pagination={{ type: "fraction" }}
             spaceBetween={10}
-            navigation={true}
+            navigation={!disableNavigation}
             modules={[FreeMode, Navigation, Pagination]}
             className="relative w-full"
           >
             {imgGallery.map((img, index) => (
-              <SwiperSlide key={index} className="flex items-center justify-center">
+              <SwiperSlide
+                key={index}
+                className="flex items-center justify-center"
+              >
                 {loadingImages[index] && (
                   <div className="w-full h-full bg-gray-300 dark:bg-gray-700 animate-pulse rounded-md" />
                 )}
