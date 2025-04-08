@@ -89,9 +89,7 @@ const Modal: React.FC<{
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-md z-50 animate-fadeIn">
       {/* Modal Content */}
-      <div className="relative w-full h-screen md:w-4/5 md:h-5/6 lg:w-3/5 lg:max-h-[85vh] bg-neutral-100 dark:bg-neutral-800 shadow-lg p-6 md:rounded-lg overflow-hidden flex flex-col">
-        {/* Close Button */}
-        <div className="absolute md:top-4 top-12 right-4 z-50">
+      <div className="absolute md:top-4 top-12 right-4 z-50">
           <button
             className="hover:opacity-70 p-2 bg-gray-200 dark:bg-gray-700 rounded-full"
             onClick={onClose}
@@ -101,6 +99,7 @@ const Modal: React.FC<{
           </button>
         </div>
 
+      <div className="relative w-full h-screen md:w-4/5 md:h-5/6 lg:max-h-[85vh] bg-transparent overflow-hidden flex flex-col">
         {/* แสดงเลขหน้า (custom pagination) */}
         <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-full z-40">
           <span className="text-sm font-medium">
