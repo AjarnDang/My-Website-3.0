@@ -13,11 +13,11 @@ const importImages = (prefix: string, count: number): string[] =>
 const uxuiWorks = [
   {
     id: 1,
-    name: "0xJeff",
-    slug: "0xjeff",
+    name: "Web3 KOL",
+    slug: "Web3 KOL",
     img: require("@/app/images/thumbnails/uxui/0xjeff.png").default,
     date: "Feb 2025",
-    desc: "Personal Web Application for @Defi0xJeff at Twitter (X) inspired by Web3, Blockchain, Crypto, NFTs...",
+    desc: "Personal Web Application for my client at Twitter (X) inspired by Web3, Blockchain, Crypto, NFTs...",
     category: "UX/UI Design",
     tech: [
       "Figma",
