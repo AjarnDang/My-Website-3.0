@@ -17,7 +17,7 @@ export default function StickySideNav() {
       <aside className="lg:flex md:flex hidden flex-col justify-between gap-16 sticky top-0 h-screen px-8 py-12">
         <div className="flex flex-col gap-6">
           {/* <div className="logo text-5xl font-black">TJ</div> */}
-          <Link href="/home">
+          <Link href="/works">
             <Image
               className="h-12 w-12 object-cover rounded-full"
               src={Logo}

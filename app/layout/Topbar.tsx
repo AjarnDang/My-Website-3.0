@@ -12,7 +12,7 @@ export default function Topbar() {
         <HamburgerMenu />
       </div>
       <div>
-        <Link href="/home">
+        <Link href="/works">
           <Image
             className="h-12 w-12 object-cover rounded-full"
             src={Logo}

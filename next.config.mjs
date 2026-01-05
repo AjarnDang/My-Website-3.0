@@ -6,7 +6,7 @@ export default {
       return [
         {
           source: "/",
-          destination: "/home",
+          destination: "/works",
           permanent: true,
         },
       ];
