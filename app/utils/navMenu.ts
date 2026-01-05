@@ -1,4 +1,4 @@
-import { HomeIcon, ArchiveIcon, BadgeInfoIcon, MailIcon } from "lucide-react";
+import { ArchiveIcon, BadgeInfoIcon, MailIcon } from "lucide-react";
 interface NavMenuItem {
   id: number;
   name: string;
