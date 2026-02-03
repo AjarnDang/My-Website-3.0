@@ -160,7 +160,7 @@ const devWorks = [
     category: "Frontend Developer",
     tech: ["Next.js", "Tailwind CSS", "Ant Design", "Axios", "Redux Toolkit", "React-pdf", "Fabric.js"],
     imgGallery: [],
-    link: "https://digitalflow.one.th/v2/login",
+    link: "https://uat-digitrust.softway.co.th/",
     github: "",
   },
 ];
