@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ImageIcon, ImageOff } from "lucide-react";
 import Modal from "./Modal";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 
 interface Work {
   id: number;
@@ -29,7 +29,7 @@ interface WorkListProps {
 export default function WorkList({ title, works }: WorkListProps) {
   const [modalVisible, setModalVisible] = useState<number | null>(null);
   const [loadingImages, setLoadingImages] = useState<Record<string, boolean>>({});
-  const [preloadedGallery, setPreloadedGallery] = useState<string[]>([]);
+  const preloadedGalleryUrlsRef = useRef<Set<string>>(new Set());
 
   const handleOpenModal = (id: number) => {
     setModalVisible(id);
@@ -65,22 +65,54 @@ export default function WorkList({ title, works }: WorkListProps) {
     });
   }, [works]);
 
-  // เมื่อผู้ใช้เปิด Modal ทำการโหลดรูปภาพในแกลเลอรี่ล่วงหน้า
+  const preloadGalleryUrls = useCallback((urls: string[]) => {
+    if (typeof window === "undefined") return;
+    urls.forEach((url) => {
+      if (!url || preloadedGalleryUrlsRef.current.has(url)) return;
+      const img = new window.Image();
+      img.src = url;
+      preloadedGalleryUrlsRef.current.add(url);
+    });
+  }, []);
+
+  // Preload gallery ทันทีเมื่อเข้าหน้า /works (ค่อย ๆ โหลดตอน browser ว่าง)
   useEffect(() => {
-    if (modalVisible !== null) {
-      const selectedWork = works.find(work => work.id === modalVisible);
-      if (selectedWork?.imgGallery && selectedWork.imgGallery.length > 0) {
-        // โหลดรูปภาพในแกลเลอรี่ล่วงหน้า
-        selectedWork.imgGallery.forEach(imgUrl => {
-          if (!preloadedGallery.includes(imgUrl)) {
-            const img = new window.Image();
-            img.src = imgUrl;
-            setPreloadedGallery(prev => [...prev, imgUrl]);
-          }
-        });
+    if (typeof window === "undefined") return;
+
+    const allUrls = sortedWorks
+      .flatMap((w) => w.imgGallery ?? [])
+      .filter((u): u is string => Boolean(u));
+
+    if (allUrls.length === 0) return;
+
+    let cancelled = false;
+    let idx = 0;
+    const BATCH_SIZE = 3;
+
+    const runBatch = () => {
+      if (cancelled) return;
+      const slice = allUrls.slice(idx, idx + BATCH_SIZE);
+      if (slice.length === 0) return;
+      preloadGalleryUrls(slice);
+      idx += BATCH_SIZE;
+
+      if (idx < allUrls.length) {
+        window.setTimeout(runBatch, 120);
       }
-    }
-  }, [modalVisible, works, preloadedGallery]);
+    };
+
+    const start = () => {
+      const ric = (window as unknown as { requestIdleCallback?: (cb: () => void) => number })
+        .requestIdleCallback;
+      if (ric) ric(runBatch);
+      else window.setTimeout(runBatch, 0);
+    };
+
+    start();
+    return () => {
+      cancelled = true;
+    };
+  }, [preloadGalleryUrls, sortedWorks]);
 
   // ฟังก์ชันสำหรับบันทึกสถานะการโหลดของรูปภาพ
   const handleImageLoad = (imageUrl: string) => {
@@ -103,10 +135,10 @@ export default function WorkList({ title, works }: WorkListProps) {
   return (
     <section
       className={`
-        lg:pr-0 lg:space-y-16 space-y-8 xl:w-4/5 lg:w-full w-full
+        lg:pr-0 lg:space-y-8 space-y-4 xl:w-4/5 lg:w-full w-full lg:pb-24 pb-16
         ${
           title === "UX/UI Design" &&
-          "lg:pb-24 pb-16 lg:mb-24 mb-16 border-b border-theme"
+          ""
         }
         `}
     >

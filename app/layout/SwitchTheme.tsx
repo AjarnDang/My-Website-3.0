@@ -7,7 +7,6 @@ import { Sun, MoonStar } from "lucide-react";
 const SwitchTheme = memo(() => {
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
-  const [isChanging, setIsChanging] = useState(false);
 
   // ตั้งค่าเริ่มต้นเมื่อคอมโพเนนต์โหลด
   useEffect(() => {
@@ -16,22 +15,12 @@ const SwitchTheme = memo(() => {
 
   // ใช้ useCallback เพื่อหลีกเลี่ยงการสร้างฟังก์ชันใหม่ทุกครั้งที่ re-render
   const handleSwitchTheme = useCallback(() => {
-    if (isChanging) return;
-    
-    setIsChanging(true);
-    
-    // ใช้ requestAnimationFrame เพื่อให้สอดคล้องกับกระบวนการ paint ของเบราว์เซอร์
-    requestAnimationFrame(() => {
-      if (resolvedTheme === "dark") {
-        setTheme("light");
-      } else {
-        setTheme("dark");
-      }
-      
-      // ลดเวลาการรอลงเหลือ 300ms เพื่อความเร็วที่เพิ่มขึ้น
-      setTimeout(() => setIsChanging(false), 300);
-    });
-  }, [isChanging, resolvedTheme, setTheme]);
+    document.documentElement.classList.add("theme-transitioning");
+    window.setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning");
+    }, 450);
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  }, [resolvedTheme, setTheme]);
 
   // รอจนกระทั่งคอมโพเนนต์ mount ก่อนการแสดงผล
   if (!mounted) {
@@ -40,12 +29,8 @@ const SwitchTheme = memo(() => {
 
   return (
     <div className="relative">
-      {isChanging && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 z-50 transition-opacity duration-300" />
-      )}
-      
       <button
-        className="p-1 hover:opacity-70 relative z-10"
+        className="p-1 relative z-10 transition-opacity duration-300 hover:opacity-80 active:opacity-90"
         onClick={handleSwitchTheme}
         aria-label={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       >
@@ -55,16 +40,14 @@ const SwitchTheme = memo(() => {
               resolvedTheme === "dark" 
                 ? "opacity-100 scale-100 rotate-0" 
                 : "opacity-0 scale-50 rotate-90"
-            }`} 
-            color="#ffffff" 
+            } text-white`} 
           />
           <MoonStar 
             className={`absolute theme-icon ${
               resolvedTheme === "dark" 
                 ? "opacity-0 scale-50 rotate-90" 
                 : "opacity-100 scale-100 rotate-0"
-            }`} 
-            color="#222222" 
+            } text-[var(--text-color)]`} 
           />
         </div>
       </button>

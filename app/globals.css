@@ -33,6 +33,37 @@ body {
              color var(--theme-transition-duration) ease;
 }
 
+/* Extra fade layer during theme switch (accessibility-friendly) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.06);
+  transition: opacity 450ms ease;
+  z-index: 9998;
+}
+
+.theme-transitioning body::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+
+  body::before {
+    transition: none;
+    opacity: 0 !important;
+  }
+
+  .theme-icon {
+    transition: none;
+  }
+}
+
 .border-theme, .topbar, h1, h2, h3, h4, h5, h6, p, span, div {
   transition: background-color var(--theme-transition-duration) ease-in-out,
               color var(--theme-transition-duration) ease-in-out,
