@@ -134,13 +134,7 @@ export default function WorkList({ title, works }: WorkListProps) {
 
   return (
     <section
-      className={`
-        lg:pr-0 lg:space-y-8 space-y-4 xl:w-4/5 lg:w-full w-full lg:pb-24 pb-16
-        ${
-          title === "UX/UI Design" &&
-          ""
-        }
-        `}
+      className="w-full lg:w-full xl:w-4/5 lg:pr-0 space-y-8 lg:space-y-16 pb-16 lg:pb-24"
     >
       <h1 className="lg:text-3xl text-xl font-bold uppercase">{title}</h1>
       {sortedWorks.map((work) => {
@@ -152,11 +146,11 @@ export default function WorkList({ title, works }: WorkListProps) {
         return (
           <div
             key={work.id}
-            className="lg:mb-12 lg:space-y-0 md:space-y-6 space-y-6 mb-8 lg:flex md:block block gap-8"
+            className="mb-10 lg:mb-12 flex flex-col lg:flex-row gap-6 lg:gap-8"
           >
             {/* Work Image with Link if available */}
             {work.imgGallery && work.imgGallery.length > 0 ? (
-              <div className="relative block group h-full">
+              <div className="relative block group h-full w-full lg:w-80 shrink-0">
                 {work.img && work.img !== "" ? (
                   <>
                     {/* แสดง Skeleton ในขณะที่รูปภาพกำลังโหลด */}
@@ -171,14 +165,14 @@ export default function WorkList({ title, works }: WorkListProps) {
                       height={0}
                       onLoad={() => handleImageLoad(work.img)}
                       onClick={() => handleOpenModal(work.id)} // Open modal with specific work id
-                      className={`max-w-80 w-80 h-40 min-w-full max-h-auto min-h-60 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-60 cursor-pointer z-10 relative ${
+                      className={`w-full lg:w-80 h-40 min-h-60 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-60 cursor-pointer z-10 relative ${
                         loadingImages[work.img] ? "opacity-0" : "opacity-100"
                       }`}
                       priority
                     />
                   </>
                 ) : (
-                  <div className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-60 flex items-center justify-center bg-gray-200 dark:bg-gray-800 rounded-3xl shadow-lg">
+                  <div className="w-full lg:w-80 h-40 min-h-60 flex items-center justify-center bg-gray-200 dark:bg-gray-800 rounded-3xl shadow-lg">
                     <ImageOff size={48} className="text-gray-400 dark:text-gray-600" />
                   </div>
                 )}
@@ -196,7 +190,7 @@ export default function WorkList({ title, works }: WorkListProps) {
                 )}
               </div>
             ) : (
-              <div className="relative">
+              <div className="relative w-full lg:w-80 shrink-0">
                 {work.img && work.img !== "" ? (
                   <>
                     {/* แสดง Skeleton ในขณะที่รูปภาพกำลังโหลด */}
@@ -210,14 +204,14 @@ export default function WorkList({ title, works }: WorkListProps) {
                       width={0}
                       height={0}
                       onLoad={() => handleImageLoad(work.img)}
-                      className={`max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg cursor-default z-10 relative ${
+                      className={`w-full lg:w-80 h-40 min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg cursor-default z-10 relative ${
                         loadingImages[work.img] ? "opacity-0" : "opacity-100"
                       }`}
                       priority
                     />
                   </>
                 ) : (
-                  <div className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 flex items-center justify-center bg-gray-200 dark:bg-gray-800 rounded-3xl shadow-lg">
+                  <div className="w-full lg:w-80 h-40 min-h-64 flex items-center justify-center bg-gray-200 dark:bg-gray-800 rounded-3xl shadow-lg">
                     <ImageOff size={48} className="text-gray-400 dark:text-gray-600" />
                   </div>
                 )}
@@ -225,7 +219,7 @@ export default function WorkList({ title, works }: WorkListProps) {
             )}
 
             {/* Work Details */}
-            <div>
+            <div className="w-full">
               <div className="flex justify-between flex-wrap items-start">
                 <div>
                   {work.link ? (

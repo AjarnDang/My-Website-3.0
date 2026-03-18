@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <div className="relative flex flex-col">
       <WorkNav activeTab={activeTab} onTabChange={setActiveTab} />
-      <div className="px-8 py-8">
+      <div className="md:px-8 px-4 py-8">
       {activeTab === "uxui-works" && (
         <div
           id="uxui-works-panel"

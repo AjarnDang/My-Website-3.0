@@ -31,7 +31,7 @@ const WorkNav = memo(function WorkNav({ activeTab, onTabChange }: WorkNavProps) 
 
   return (
     <div
-      className={`sticky md:top-0 z-50 bg-[var(--bg-color)] border-theme py-5 px-4 transition-shadow ${
+      className={`sticky md:top-0 top-5 z-30 bg-[var(--bg-color)] border-theme py-5 px-4 transition-shadow md:border-t-0 border-t md:pb-5 pb-2 w-full ${
         isScrolled ? "shadow-lg" : "shadow-none"
       }`}
     >
@@ -47,7 +47,7 @@ const WorkNav = memo(function WorkNav({ activeTab, onTabChange }: WorkNavProps) 
                 {...(isActive ? { "aria-selected": "true" } : { "aria-selected": "false" })}
                 aria-controls={`${id}-panel`}
                 id={`${id}-tab`}
-                className={`inline-block px-4 py-3 rounded-lg transition-all duration-300 ${
+                className={`inline-block px-4 py-3 rounded-full transition-all duration-300 ${
                   isActive
                     ? "text-white bg-green-600 dark:bg-green-700 active"
                     : "hover:text-[var(--text-color)] hover:bg-gray-200 dark:hover:bg-gray-800"

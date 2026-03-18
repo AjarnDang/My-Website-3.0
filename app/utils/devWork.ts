@@ -7,7 +7,8 @@ import viki from "@/app/images/thumbnails/dev/viki-thumbnail.jpg";
 import spa from "@/app/images/thumbnails/dev/spa-thumbnail.jpg";
 import axons from "@/app/images/thumbnails/dev/axons-thumbnail.jpg";
 import digitalWorkflow from "@/app/images/thumbnails/dev/dw-thumbnail.png";
-// import finScope from "@/app/images/thumbnails/dev/FinScopeLogo.avif";
+import finScope from "@/app/images/thumbnails/dev/finscope.png";
+import investiq from "@/app/images/thumbnails/dev/investiq.png";
 
 const importImages = (prefix: string, count: number): string[] =>
   Array.from(
@@ -168,24 +169,24 @@ const devWorks = [
     id: 11,
     name: "Fin Scope | Company Review",
     slug: "fin-scope",
-    img: "",
+    img: finScope,
     date: "Feb 2025",
     desc: "A trusted financial company review platform, supporting Thai and English languages, with international standard SEO and accessibility features.",
     category: "Frontend Developer",
-    tech: ["Next.js", "Tailwind CSS", "HeroUI", "Framer Motion"],
+    tech: ["Next.js", "Tailwind CSS", "HeroUI", "Framer Motion", "i18n"],
     imgGallery: [],
     link: "https://fin-scope-nine.vercel.app/en",
     github: "",
   },
   {
     id: 12,
-    name: "InvestIQ | Investment Platform",
+    name: "InvestIQ | Fintech Platform",
     slug: "investiq",
-    img: "",
+    img: investiq,
     date: "Mar 2026",
-    desc: "A web application for investment company in purpose of document management. Eg. Group management (insurance). Developed by using Next 15, Tailwind CSS with Ant Design.",
+    desc: "A web application for fintech company in purpose of demonstrating stock market analysis and portfolio management. Developed by using Next 15, Tailwind CSS with Ant Design.",
     category: "Frontend Developer",
-    tech: ["Next.js", "Tailwind CSS", "API Integration", "Axios", "Redux Toolkit", "System Design", "Stock Market", "Fintech"],
+    tech: ["Next.js", "Tailwind CSS", "API Integration", "Axios", "Redux Toolkit", "System Design", "Stock Market", "Fintech", "i18n"],
     imgGallery: [],
     link: "https://invest-iq-green.vercel.app/home",
     github: "",
