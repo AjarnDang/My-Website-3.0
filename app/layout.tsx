@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased h-screen w-auto`}
+        className={`${inter.className} antialiased min-h-dvh w-full`}
       >
         <ThemeProvider
           attribute="class"
@@ -32,24 +32,25 @@ export default function RootLayout({
             <Topbar />
           </Suspense>
           
-          <div className="grid lg:grid-cols-[300px_1fr] md:grid-cols-[250px_1fr] h-screen justify-between lg:gap-32 gap-12">
-            <div className="pl-12">
+          <div className="min-h-dvh flex flex-col md:grid md:grid-cols-[250px_1fr] lg:grid-cols-[300px_1fr] md:h-dvh justify-between md:gap-12 lg:gap-32">
+            <div className="hidden md:block pl-12">
               <Suspense fallback={null}>
                 <StickySideNav />
               </Suspense>
             </div>
 
             {/* ✅ Added a wrapper for main content to ensure proper height */}
-            <div className="flex flex-col h-full w-full min-h-screen">
+            <div className="flex flex-col flex-1 min-h-0 w-full">
               <main
                 id="app-scroll"
-                className="overflow-y-auto relative flex-grow min-h-0 w-full"
+                className="relative flex flex-col flex-1 min-h-0 w-full px-4 py-10 md:px-8 md:py-14 md:overflow-y-auto"
               >
                 {children}
-         
-                <Suspense fallback={null}>
+
+                {/* Mobile footer: stays at bottom on short pages */}
+                <div className="mt-auto md:hidden">
                   <Footer />
-                </Suspense>
+                </div>
               </main>
             </div>
           </div>

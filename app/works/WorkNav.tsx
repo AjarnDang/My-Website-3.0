@@ -14,51 +14,52 @@ interface WorkNavProps {
 
 // ใช้ memo เพื่อลดการ re-render ที่ไม่จำเป็น
 const WorkNav = memo(function WorkNav({ activeTab, onTabChange }: WorkNavProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const scroller = document.getElementById("app-scroll");
-    if (!scroller) return;
-
-    const handleScroll = () => {
-      setIsScrolled(scroller.scrollTop > 0);
-    };
-
-    handleScroll();
-    scroller.addEventListener("scroll", handleScroll, { passive: true });
-    return () => scroller.removeEventListener("scroll", handleScroll);
+    const mq = window.matchMedia("(min-width: 1024px)"); // Tailwind 'lg'
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
   }, []);
 
   return (
     <div
-      className={`sticky md:top-0 top-5 z-30 bg-[var(--bg-color)] border-theme py-5 px-4 transition-shadow md:border-t-0 border-t md:pb-5 pb-2 w-full ${
-        isScrolled ? "shadow-lg" : "shadow-none"
-      }`}
+      role="tablist"
+      className={
+        isDesktop
+          ? "fixed top-1/2 right-6 -translate-y-1/2 z-50 space-y-4"
+          : "fixed bottom-12 left-1/2 -translate-x-1/2 z-50 flex rounded-full dark:bg-neutral-800 bg-neutral-200 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl overflow-hidden"
+      }
     >
-      <div className="flex flex-wrap text-sm font-medium text-center" role="tablist">
-        {sections.map(({ id, label }, index) => {
-          const isActive = activeTab === id;
-          return (
-            <div key={id} className={index < sections.length - 1 ? "me-2" : ""}>
-              <button
-                onClick={() => onTabChange(id)}
-                role="tab"
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...(isActive ? { "aria-selected": "true" } : { "aria-selected": "false" })}
-                aria-controls={`${id}-panel`}
-                id={`${id}-tab`}
-                className={`inline-block px-4 py-3 rounded-full transition-all duration-300 ${
-                  isActive
-                    ? "text-white bg-green-600 dark:bg-green-700 active"
-                    : "hover:text-[var(--text-color)] hover:bg-gray-200 dark:hover:bg-gray-800"
-                }`}
-              >
-                {label}
-              </button>
-            </div>
-          );
-        })}
-      </div>
+      {sections.map(({ id, label }) => {
+        const isActive = activeTab === id;
+        return (
+          <button
+            key={id}
+            onClick={() => onTabChange(id)}
+            role="tab"
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...(isActive ? { "aria-selected": "true" } : { "aria-selected": "false" })}
+            aria-controls={`${id}-panel`}
+            id={`${id}-tab`}
+            className={
+              isDesktop
+                ? `w-full items-center gap-2 text-right px-3 py-2 rounded-full transition-all duration-300 flex justify-end border border-theme ${
+                    isActive
+                      ? "dark:bg-green-700 bg-green-500 dark:shadow-slate-700 shadow-slate-400/50 shadow-lg text-white"
+                      : "bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800"
+                  }`
+                : `items-center text-center px-6 py-4 rounded-full transition-all duration-300 flex justify-center w-36 ${
+                    isActive ? "dark:bg-green-800 bg-green-600 text-white" : "text-gray-500"
+                  }`
+            }
+          >
+            <span className={isDesktop ? "font-bold text-lg" : "text-lg font-bold"}>{label}</span>
+          </button>
+        );
+      })}
     </div>
   );
 });
@@ -67,3 +68,4 @@ const WorkNav = memo(function WorkNav({ activeTab, onTabChange }: WorkNavProps) 
 WorkNav.displayName = "WorkNav";
 
 export default WorkNav;
+  
