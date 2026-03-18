@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "./ThemeProvider";
 import StickySideNav from "./layout/StickySideNav";
-import Loader from "./layout/Loading";
 import Topbar from "./layout/Topbar";
 import Footer from "./layout/Footer";
 import { Suspense } from "react";
@@ -30,11 +29,6 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="theme-preference"
         >
-          {/* Wrap Loader in Suspense */}
-          <Suspense fallback={null}>
-            <Loader />
-          </Suspense>
-          
           <Suspense fallback={null}>
             <Topbar />
           </Suspense>
