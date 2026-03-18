@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import me from "@/app/images/others/me_2.png";
+import me from "@/app/images/others/me_3.png";
 import Experiences from "./Experiences";
 import { Minus } from "lucide-react";
 

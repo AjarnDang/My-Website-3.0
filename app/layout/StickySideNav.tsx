@@ -5,7 +5,7 @@ import Image from "next/image";
 import SwitchTheme from "./SwitchTheme";
 import Link from "next/link";
 import NavMenu from "../utils/navMenu";
-import Logo from "../images/logo/logo.jpg";
+import Logo from "../images/logo/me.jpg";
 import { usePathname } from "next/navigation";
 
 export default function StickySideNav() {
@@ -19,7 +19,7 @@ export default function StickySideNav() {
           {/* <div className="logo text-5xl font-black">TJ</div> */}
           <Link href="/works">
             <Image
-              className="h-12 w-12 object-cover rounded-full"
+              className="h-12 w-12 object-cover object-top rounded-full"
               src={Logo}
               alt="Logo"
               width={0}

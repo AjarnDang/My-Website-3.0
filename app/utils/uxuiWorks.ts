@@ -4,6 +4,7 @@ import runads from "@/app/images/thumbnails/uxui/runads.png";
 import msgdsc from "@/app/images/thumbnails/uxui/msc-dsg.png";
 import toyotaidm from "@/app/images/thumbnails/uxui/toyota-idm.png";
 import ofas from "@/app/images/thumbnails/uxui/ofas.png";
+import cabal from "@/app/images/thumbnails/uxui/cabal.png";
 
 const importImages = (prefix: string, count: number): string[] =>
   Array.from({ length: count }, (_, i) =>
@@ -193,6 +194,25 @@ const uxuiWorks = [
     ],
     link: "https://ofas.chula.ac.th/",
     imgGallery: importImages("ofas", 7),
+    figma: "",
+  },
+  {
+    id: 9,
+    name: "Cabal Infinite Combo (Re-Design)",
+    slug: "cabal-infinite-combo-re-design",
+    img: cabal,
+    date: "Mar 2026",
+    desc: "A re-design of the Cabal Infinite Combo website. The website is about the Cabal Infinite Combo game.",
+    category: "UX/UI Design",
+    tech: [
+      "Figma",
+      "User Research",
+      "Color Theory",
+      "Graphic Design",
+      "Copy Writing",
+    ],
+    link: "https://cabal-redesign.vercel.app/",
+    imgGallery: importImages("cabal", 6),
     figma: "",
   },
 ];

@@ -69,7 +69,7 @@ const devWorks = [
   },
   {
     id: 4,
-    name: "Duckking for Worker",
+    name: "Duckking (for Worker)",
     slug: "duckking-for-worker",
     img: duckking,
     date: "Jun 2024",
@@ -101,7 +101,7 @@ const devWorks = [
   },
   {
     id: 6,
-    name: "Viki (Valorant Wikipedia)",
+    name: "Viki | Valorant Wikipedia",
     slug: "viki",
     img: viki,
     date: "May 2024",
@@ -153,7 +153,7 @@ const devWorks = [
   },
   {
     id: 10,
-    name: "Digital Workflow",
+    name: "E-Contract",
     slug: "digital-workflow",
     img: digitalWorkflow,
     date: "Mar 2025",
@@ -166,7 +166,7 @@ const devWorks = [
   },
   {
     id: 11,
-    name: "Fin Scope",
+    name: "Fin Scope | Company Review",
     slug: "fin-scope",
     img: "",
     date: "Feb 2025",
@@ -175,6 +175,19 @@ const devWorks = [
     tech: ["Next.js", "Tailwind CSS", "HeroUI", "Framer Motion"],
     imgGallery: [],
     link: "https://fin-scope-nine.vercel.app/en",
+    github: "",
+  },
+  {
+    id: 12,
+    name: "InvestIQ | Investment Platform",
+    slug: "investiq",
+    img: "",
+    date: "Mar 2026",
+    desc: "A web application for investment company in purpose of document management. Eg. Group management (insurance). Developed by using Next 15, Tailwind CSS with Ant Design.",
+    category: "Frontend Developer",
+    tech: ["Next.js", "Tailwind CSS", "API Integration", "Axios", "Redux Toolkit", "System Design", "Stock Market", "Fintech"],
+    imgGallery: [],
+    link: "https://invest-iq-green.vercel.app/home",
     github: "",
   }
 ];
