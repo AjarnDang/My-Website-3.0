@@ -7,6 +7,7 @@ import viki from "@/app/images/thumbnails/dev/viki-thumbnail.jpg";
 import spa from "@/app/images/thumbnails/dev/spa-thumbnail.jpg";
 import axons from "@/app/images/thumbnails/dev/axons-thumbnail.jpg";
 import digitalWorkflow from "@/app/images/thumbnails/dev/dw-thumbnail.png";
+// import finScope from "@/app/images/thumbnails/dev/FinScopeLogo.avif";
 
 const importImages = (prefix: string, count: number): string[] =>
   Array.from(
@@ -163,6 +164,19 @@ const devWorks = [
     link: "https://uat-digitrust.softway.co.th/",
     github: "",
   },
+  {
+    id: 11,
+    name: "Fin Scope",
+    slug: "fin-scope",
+    img: "",
+    date: "Feb 2025",
+    desc: "A trusted financial company review platform, supporting Thai and English languages, with international standard SEO and accessibility features.",
+    category: "Frontend Developer",
+    tech: ["Next.js", "Tailwind CSS", "HeroUI", "Framer Motion"],
+    imgGallery: [],
+    link: "https://fin-scope-nine.vercel.app/en",
+    github: "",
+  }
 ];
 
 export default devWorks;

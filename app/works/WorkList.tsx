@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, ImageIcon } from "lucide-react";
+import { ArrowUpRight, ImageIcon, ImageOff } from "lucide-react";
 import Modal from "./Modal";
 import { useState, useMemo, useEffect } from "react";
 
@@ -112,8 +112,10 @@ export default function WorkList({ title, works }: WorkListProps) {
     >
       <h1 className="lg:text-3xl text-xl font-bold uppercase">{title}</h1>
       {sortedWorks.map((work) => {
-        // เริ่มบันทึกสถานะการโหลดรูปภาพ
-        handleImageLoadStart(work.img);
+        // เริ่มบันทึกสถานะการโหลดรูปภาพ (เฉพาะเมื่อมีรูปภาพ)
+        if (work.img && work.img !== "") {
+          handleImageLoadStart(work.img);
+        }
         
         return (
           <div
@@ -123,23 +125,31 @@ export default function WorkList({ title, works }: WorkListProps) {
             {/* Work Image with Link if available */}
             {work.imgGallery && work.imgGallery.length > 0 ? (
               <div className="relative block group h-full">
-                {/* แสดง Skeleton ในขณะที่รูปภาพกำลังโหลด */}
-                {loadingImages[work.img] && (
-                  <div className="absolute inset-0 w-full h-full min-h-60 bg-gray-300 dark:bg-gray-700 animate-pulse rounded-3xl z-0" />
+                {work.img && work.img !== "" ? (
+                  <>
+                    {/* แสดง Skeleton ในขณะที่รูปภาพกำลังโหลด */}
+                    {loadingImages[work.img] && (
+                      <div className="absolute inset-0 w-full h-full min-h-60 bg-gray-300 dark:bg-gray-700 animate-pulse rounded-3xl z-0" />
+                    )}
+                    
+                    <Image
+                      src={work.img}
+                      alt={work.name}
+                      width={0}
+                      height={0}
+                      onLoad={() => handleImageLoad(work.img)}
+                      onClick={() => handleOpenModal(work.id)} // Open modal with specific work id
+                      className={`max-w-80 w-80 h-40 min-w-full max-h-auto min-h-60 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-60 cursor-pointer z-10 relative ${
+                        loadingImages[work.img] ? "opacity-0" : "opacity-100"
+                      }`}
+                      priority
+                    />
+                  </>
+                ) : (
+                  <div className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-60 flex items-center justify-center bg-gray-200 dark:bg-gray-800 rounded-3xl shadow-lg">
+                    <ImageOff size={48} className="text-gray-400 dark:text-gray-600" />
+                  </div>
                 )}
-                
-                <Image
-                  src={work.img}
-                  alt={work.name}
-                  width={0}
-                  height={0}
-                  onLoad={() => handleImageLoad(work.img)}
-                  onClick={() => handleOpenModal(work.id)} // Open modal with specific work id
-                  className={`max-w-80 w-80 h-40 min-w-full max-h-auto min-h-60 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg hover:opacity-60 cursor-pointer z-10 relative ${
-                    loadingImages[work.img] ? "opacity-0" : "opacity-100"
-                  }`}
-                  priority
-                />
 
                 <div className="flex absolute -top-3 -left-3 dark:bg-green-600 bg-green-500/80 text-white p-2 rounded-full transition-all duration-300 z-20">
                   <ImageIcon size={20} strokeWidth={2} />
@@ -155,22 +165,30 @@ export default function WorkList({ title, works }: WorkListProps) {
               </div>
             ) : (
               <div className="relative">
-                {/* แสดง Skeleton ในขณะที่รูปภาพกำลังโหลด */}
-                {loadingImages[work.img] && (
-                  <div className="absolute inset-0 w-full h-full min-h-64 bg-gray-300 dark:bg-gray-700 animate-pulse rounded-3xl z-0" />
+                {work.img && work.img !== "" ? (
+                  <>
+                    {/* แสดง Skeleton ในขณะที่รูปภาพกำลังโหลด */}
+                    {loadingImages[work.img] && (
+                      <div className="absolute inset-0 w-full h-full min-h-64 bg-gray-300 dark:bg-gray-700 animate-pulse rounded-3xl z-0" />
+                    )}
+                    
+                    <Image
+                      src={work.img}
+                      alt={work.name}
+                      width={0}
+                      height={0}
+                      onLoad={() => handleImageLoad(work.img)}
+                      className={`max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg cursor-default z-10 relative ${
+                        loadingImages[work.img] ? "opacity-0" : "opacity-100"
+                      }`}
+                      priority
+                    />
+                  </>
+                ) : (
+                  <div className="max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 flex items-center justify-center bg-gray-200 dark:bg-gray-800 rounded-3xl shadow-lg">
+                    <ImageOff size={48} className="text-gray-400 dark:text-gray-600" />
+                  </div>
                 )}
-                
-                <Image
-                  src={work.img}
-                  alt={work.name}
-                  width={0}
-                  height={0}
-                  onLoad={() => handleImageLoad(work.img)}
-                  className={`max-w-80 w-80 h-40 min-w-full max-h-auto min-h-64 object-cover object-center rounded-3xl transition-all duration-300 filter shadow-lg cursor-default z-10 relative ${
-                    loadingImages[work.img] ? "opacity-0" : "opacity-100"
-                  }`}
-                  priority
-                />
               </div>
             )}
 

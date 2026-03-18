@@ -47,8 +47,11 @@ export default function RootLayout({
             </div>
 
             {/* ✅ Added a wrapper for main content to ensure proper height */}
-            <div className="flex flex-col h-full">
-              <main className="overflow-auto relative min-h-screen flex-grow px-8 py-14">
+            <div className="flex flex-col h-full min-h-0">
+              <main
+                id="app-scroll"
+                className="overflow-y-auto relative flex-grow min-h-0"
+              >
                 {children}
               </main>
 
