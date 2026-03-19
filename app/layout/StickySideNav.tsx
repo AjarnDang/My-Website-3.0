@@ -5,7 +5,7 @@ import Image from "next/image";
 import SwitchTheme from "./SwitchTheme";
 import Link from "next/link";
 import NavMenu from "../utils/navMenu";
-import Logo from "../images/logo/me.jpg";
+import Logo from "../images/logo/logo_2.jpg";
 import { usePathname } from "next/navigation";
 
 export default function StickySideNav() {

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SwitchTheme from "./SwitchTheme";
 import HamburgerMenu from "./HamburgerMenu";
-import Logo from "../images/logo/me.jpg";
+import Logo from "../images/logo/logo_2.jpg";
 
 export default function Topbar() {
   return (
