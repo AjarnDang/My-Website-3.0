@@ -43,7 +43,7 @@ export default function RootLayout({
             <div className="flex flex-col flex-1 min-h-0 w-full">
               <main
                 id="app-scroll"
-                className="relative flex flex-col flex-1 min-h-0 w-full px-4 py-10 md:px-8 md:py-14 md:overflow-y-auto"
+                className="relative flex flex-col flex-1 min-h-0 w-full px-4 pt-24 pb-10 md:px-8 md:pt-14 md:pb-14 md:overflow-y-auto"
               >
                 {children}
 
