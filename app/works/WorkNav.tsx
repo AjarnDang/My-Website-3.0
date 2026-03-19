@@ -30,7 +30,7 @@ const WorkNav = memo(function WorkNav({ activeTab, onTabChange }: WorkNavProps) 
       className={
         isDesktop
           ? "fixed top-1/2 right-6 -translate-y-1/2 z-50 space-y-4"
-          : "fixed bottom-12 left-1/2 -translate-x-1/2 z-50 flex rounded-full dark:bg-neutral-800 bg-neutral-200 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl overflow-hidden"
+          : "fixed bottom-16 left-1/2 -translate-x-1/2 z-50 flex rounded-full dark:bg-neutral-800 bg-neutral-200 dark:shadow-slate-600/70 shadow-slate-400 shadow-xl overflow-hidden"
       }
     >
       {sections.map(({ id, label }) => {
