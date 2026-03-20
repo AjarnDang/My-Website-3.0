@@ -9,6 +9,11 @@ export default {
           destination: "/works",
           permanent: true,
         },
+        {
+          source: "/home",
+          destination: "/works",
+          permanent: true,
+        },
       ];
     },
   };

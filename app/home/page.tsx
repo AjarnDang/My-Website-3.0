@@ -1,10 +1,14 @@
-import React from "react";
-import Home from "./Home";
+"use client";
 
-export default function page() {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function HomeRedirectPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/works");
+  }, [router]);
+
+  return null;
 }

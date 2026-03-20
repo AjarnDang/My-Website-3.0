@@ -1,10 +1,5 @@
-import React from "react";
-import Works from "./home/Home";
+import { redirect } from "next/navigation";
 
-export default function page() {
-  return (
-    <div>
-      <Works />
-    </div>
-  );
+export default function Page() {
+  redirect("/works");
 }
