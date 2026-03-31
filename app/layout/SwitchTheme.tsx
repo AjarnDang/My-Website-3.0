@@ -1,5 +1,5 @@
 "use client";
-import { useTheme } from "next-themes";
+import { useTheme } from "../ThemeProvider";
 import { useEffect, useState, useCallback, memo } from "react";
 import { Sun, MoonStar } from "lucide-react";
 
